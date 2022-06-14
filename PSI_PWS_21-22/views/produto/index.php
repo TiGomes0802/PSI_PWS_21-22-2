@@ -6,11 +6,11 @@
     <div class="col-sm-12">
         <table class="table tablestriped">
             <thead>
-            <th><h3>Id</h3></th>
-            <th><h3>Name</h3></th>
-            <th><h3>ISBN</h3></th>
-            <th><h3>Genres</h3></th>
-            <th><h3>User Actions</h3></th>
+            <th><h3>Referência</h3></th>
+            <th><h3>Descrição</h3></th>
+            <th><h3>Preço</h3></th>
+            <th><h3>Stock</h3></th>
+            <th><h3>Percentagem Iva:</h3></th>
             </thead>
             <tbody>
             <?php foreach ($produtos as $produto) { ?>

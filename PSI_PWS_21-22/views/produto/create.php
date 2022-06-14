@@ -3,52 +3,77 @@
 <div class="row">
     <div class="col-sm-12">
         <form action="./router.php?c=produto&a=create" method="POST">
-            <br>
+
             </p><br>
-            <label for="codigopostal">codpostal:</label><br>
-            <input type="text" name="codigopostal" value="<?php if(isset($cliente)) { echo $cliente->codigopostal; }?>">
+            <label for="referencia">Referência:</label><br>
+            <input type="text" name="referencia" value="<?php if(isset($produto)) { echo $produto->referencia; }?>">
             <p><?php
-                if(isset($cliente->errors)) {
-                    if (is_array($cliente->errors->on('codigopostal'))) {
-                        foreach ($cliente->errors->on('codigopostal') as $error) {
+                if(isset($produto->errors)) {
+                    if (is_array($produto->errors->on('referencia'))) {
+                        foreach ($produto->errors->on('referencia') as $error) {
                             echo $error . '<br>';
                         }
                     } else {
-                        echo $cliente->errors->on('codigopostal');
+                        echo $produto->errors->on('referencia');
                     }
                 }
                 ?>
             </p><br>
-            </p><br>
-            <label for="codigopostal">codpostal:</label><br>
-            <input type="text" name="codigopostal" value="<?php if(isset($cliente)) { echo $cliente->codigopostal; }?>">
+
+            <label for="descricao">descricao:</label><br>
+            <input type="text" name="descricao" value="<?php if(isset($produto)) { echo $produto->descricao; }?>">
             <p><?php
-                if(isset($cliente->errors)) {
-                    if (is_array($cliente->errors->on('codigopostal'))) {
-                        foreach ($cliente->errors->on('codigopostal') as $error) {
+                if(isset($produto->errors)) {
+                    if (is_array($produto->errors->on('descricao'))) {
+                        foreach ($produto->errors->on('descricao') as $error) {
                             echo $error . '<br>';
                         }
                     } else {
-                        echo $cliente->errors->on('codigopostal');
+                        echo $produto->errors->on('descricao');
+                    }
+                }
+                ?>
+
+            </p><br>
+            <label for="preco">preco:</label><br>
+            <input type="number" name="preco" value="<?php if(isset($produto)) { echo $produto->preco; }?>">
+            <p><?php
+                if(isset($produto->errors)) {
+                    if (is_array($produto->errors->on('preco'))) {
+                        foreach ($produto->errors->on('preco') as $error) {
+                            echo $error . '<br>';
+                        }
+                    } else {
+                        echo $produto->errors->on('preco');
                     }
                 }
                 ?>
             </p><br>
-            </p><br>
-            <label for="codigopostal">codpostal:</label><br>
-            <input type="text" name="codigopostal" value="<?php if(isset($cliente)) { echo $cliente->codigopostal; }?>">
+
+
+            <label for="stock">stock:</label><br>
+            <input type="number" name="stock" value="<?php if(isset($produto)) { echo $produto->stock; }?>">
             <p><?php
-                if(isset($cliente->errors)) {
-                    if (is_array($cliente->errors->on('codigopostal'))) {
-                        foreach ($cliente->errors->on('codigopostal') as $error) {
+                if(isset($produto->errors)) {
+                    if (is_array($produto->errors->on('stock'))) {
+                        foreach ($produto->errors->on('stock') as $error) {
                             echo $error . '<br>';
                         }
                     } else {
-                        echo $cliente->errors->on('codigopostal');
+                        echo $produto->errors->on('stock');
                     }
                 }
                 ?>
+
+            <p></p>
+            <label for="iva_id">Percentagem Iva:</label><br>
+            <select name="iva_id">
+                <?php foreach($ivas as $iva){?>
+                    <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?></option>
+                <?php } ?>
+            </select>
             </p><br>
+
             <input type="submit" value="Submit">
         </form>
     </div>

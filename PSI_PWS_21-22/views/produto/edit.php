@@ -8,25 +8,33 @@
             <input type="text" name="id" value="<?=$produto->id?>" disabled><br>
             <p></p>
             <label for="referencia">Referência:</label><br>
-            <input type="text" name="referencia" value="<?=$produto->referencia?>"><br>
+            <input type="text" name="referencia" value="<?=$produto->referencia?>"disabled><br>
             <p><?php if(isset($produto->errors)){ echo $produto->errors->on('referencia'); }?></p>
             <p></p>
             <label for="descricao">Descrição:</label><br>
-            <input type="text" name="descricao" value="<?=$produto->descricao?>"><br>
+            <input type="text" name="descricao" value="<?=$produto->descricao?>"disabled><br>
             <p><?php if(isset($produto->errors)){ echo $produto->errors->on('descricao'); }?></p>
             <p></p>
             <label for="preco">Preço:</label><br>
-            <input type="text" name="preco" value="<?=$produto->preco?>"><br>
+            <input type="text" name="preco" value="<?=$produto->preco?>"><brdisabled>
             <p><?php if(isset($produto->errors)){ echo $produto->errors->on('preco'); }?></p>
             <p></p>
             <label for="stock">Stock:</label><br>
             <input type="text" name="stock" value="<?=$produto->stock?>"><br>
             <p><?php if(isset($produto->errors)){ echo $produto->errors->on('stock'); }?></p>
             <p></p>
-            <label for="iva_id">ID-Iva:</label><br>
-            <input type="text" name="iva_id" value="<?=$produto->iva_id?>"><br>
-            <p><?php if(isset($produto->errors)){ echo $produto->errors->on('iva_id'); }?></p>
-            <p></p>
+            <label for="iva_id">Percentagem Iva:</label><br>
+                <select name="iva_id">
+                    <?php foreach($ivas as $iva){?>
+                        <?php if($iva->id == $book->iva_id) { ?>
+                            <option value="<?= $iva->id?>" selected><?= $iva->percentagem;
+                                ?> </option>
+                        <?php }else { ?>
+                            <option value="<?= $iva->id?>"> <?= $iva->percentagem;
+                                ?></option>
+                        <?php }
+                    } ?>
+                </select>
 
             <br>
             <input type="submit" value="Submit">
