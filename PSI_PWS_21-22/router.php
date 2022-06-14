@@ -83,9 +83,6 @@
                     case 'index':
                         $user->index();
                         break;
-                    case 'create':
-                        $user->create();
-                        break;
                     case 'show':
                         $id = $_GET['id'];
                         $user->show($id);
@@ -97,10 +94,6 @@
                     case 'update':
                         $id = $_GET['id'];
                         $user->update($id);
-                        break;
-                    case 'delete':
-                        $id = $_GET['id'];
-                        $user->delete($id);
                         break;
                     case 'create_cliente':
                         $user->create_cliente();

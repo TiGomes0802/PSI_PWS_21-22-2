@@ -83,15 +83,6 @@ class FaturaController extends BaseAuthController
         }
     }
 
-    public function delete($id)
-    {
-        $fatura = Fatura::find([$id]);
-        $fatura->delete();
-        //redirecionar para o index
-        $faturas = Fatura::all();
-        $this->renderView('fatura','index', ['faturas' => $faturas]);
-    }
-
     public function updateestado($id)
     {
         $fatura = Fatura::find([$id]);

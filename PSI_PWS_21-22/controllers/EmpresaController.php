@@ -42,7 +42,7 @@ class EmpresaController extends BaseAuthController
             $empresa->save();
             //redirecionar para o index
             $empresas = Empresa::all();
-            $this->renderView('empresa','index', ['empresas' => $empresas]);
+            $this->renderView('empresa','show', ['empresas' => $empresas]);
         } else {
             //mostrar vista edit passando o modelo como parâmetro
             $this->renderView('empresa','edit', ['empresa' => $empresa]);

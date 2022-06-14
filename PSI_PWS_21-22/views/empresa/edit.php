@@ -34,6 +34,9 @@
             <label for="localidade">Localidade:</label><br>
             <input type="text" name="localidade" value="<?=$empresa->localidade?>"><br>
             <p><?php if(isset($empresa->errors)){ echo $empresa->errors->on('localidade'); }?></p>
+            <label for="capitalsocial">Capital social:</label><br>
+            <input type="text" name="capitalsocial" value="<?=$empresa->capitalsocial?>"><br>
+            <p><?php if(isset($empresa->errors)){ echo $empresa->errors->on('capitalsocial'); }?></p>
             <p></p>
 
             <br>

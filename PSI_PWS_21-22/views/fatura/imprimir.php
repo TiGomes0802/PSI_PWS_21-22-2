@@ -47,6 +47,7 @@
 
                                         <?php if($linhasfatura != null){foreach ($linhasfatura as $linhafatura) { ?>
                                             <div class="row">
+
                                                 <div class="col">
                                                     <label>Descrição do produto</label>
                                                     <input type="text" class="form-control" value="<?= $linhafatura->produto->descricao ?>" disabled>
@@ -56,16 +57,16 @@
                                                     <input type="number" class="form-control" value="<?= $linhafatura->produto->referencia ?>" disabled>
                                                 </div>
                                                 <div class="col">
-                                                    <label>Valor</label>
-                                                    <input type="text" class="form-control" value="<?= number_format($linhafatura->valor, 2); ?>€" disabled>
+                                                    <label>Quantidade</label>
+                                                    <input type="number" class="form-control" value="<?= $linhafatura->quantidade ?>" disabled>
                                                 </div>
                                                 <div class="col">
                                                     <label>Valor Iva</label>
                                                     <input type="text" class="form-control" value="<?= number_format($linhafatura->valoriva, 2);?>€" disabled>
                                                 </div>
                                                 <div class="col">
-                                                    <label>Quantidade</label>
-                                                    <input type="number" class="form-control" value="<?= $linhafatura->quantidade ?>" disabled>
+                                                    <label>Valor</label>
+                                                    <input type="text" class="form-control" value="<?= number_format($linhafatura->valor, 2); ?>€" disabled>
                                                 </div>
                                             </div>
                                         <?php } }?>
@@ -75,15 +76,17 @@
 
                             <div class="boxer">
                                 <div class="row end" id="row1">
-                                    <div class="col-3">
-                                        <label for="valortotal">Valor total:</label>
-                                        <input type="text" name="valortotal" class="form-control" value="<?php if(isset($fatura)) { echo number_format($fatura->valortotal,2); }?>€"disabled>
-                                    </div>
+                                    <div class="col-10 end-0">
 
-                                    <div class="col-3">
+                                    </div>
+                                    <div class="col-1 end-0">
                                         <label for="ivatotal">Iva total:</label>
-                                        <input type="text" name="ivatotal" class="form-control" value="<?php if(isset($fatura)) { echo number_format($fatura->ivatotal,2); }?>€" disabled>
+                                        <label for="ivatotal"><?php if(isset($fatura)) { echo number_format($fatura->ivatotal,2); }?>€</label>
                                         <br>
+                                    </div>
+                                    <div class="col-1 end-0">
+                                        <label for="valortotal">Valor total:</label>
+                                        <label for="valortotal" style="font-weight: bold; font-size: larger" ><?php if(isset($fatura)) { echo number_format($fatura->valortotal,2); }?>€</label>
                                     </div>
                                 </div>
                             </div>

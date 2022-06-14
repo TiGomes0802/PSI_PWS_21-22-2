@@ -21,6 +21,12 @@
                     <td class="text-center"><?=$empresa->codigopostal?></td>
                     <td class="text-center"><?=$empresa->localidade?></td>
                     <td class="text-center"><?=number_format($empresa->capitalsocial, 2); echo '€'?></td>
+                    <td class="text-center">
+                        <?php
+                            echo '<a href="router.php?c=empresa&a=edit&id='. $empresa->id .'"
+                                            class="btn btn-info" role="button">Editar empresa</a>';
+                        ?>
+                    </td>
                 </tr>
             </tbody>
         </table>
