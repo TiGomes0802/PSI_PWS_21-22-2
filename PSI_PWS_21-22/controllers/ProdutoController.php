@@ -34,7 +34,7 @@ class ProdutoController extends BaseAuthController
 
     public function create()
     {
-        $ivas = Iva::all();
+        $ivas = Iva::find_all_by_emvigor([1]);
         $this->renderView('produto','create', ['ivas' => $ivas]);
     }
 
