@@ -166,7 +166,9 @@
                     if($user->role == 'funcionario' or $user->role == 'admin') {
                         echo '<a class="link-1" href="./router.php?c=empresa&a=show&id=1">Empresa </a>
                               <a href="./router.php?c=fatura&a=index">Faturas </a>
-                              <a href="./router.php?c=user&a=index">Clientes </a>';
+                              <a href="./router.php?c=user&a=index">Clientes </a>
+                              <a href="./router.php?c=produto&a=index">Produtos </a>';
+
                     }
                     if($user->role == 'cliente') {
                         echo '<a class="link-1" href="./router.php?c=fatura&a=minhasfaturas">Minhas Faturas</a>';
