@@ -53,6 +53,10 @@
                                 <a class="nav-link'; if($controller == 'produto'){echo ' active'; }
                             echo '" href="./router.php?c=produto&a=index">Produtos</a>
                             </li>';
+                            echo'<li class="nav-item">
+                                <a class="nav-link'; if($controller == 'iva'){echo ' active'; }
+                            echo '" href="./router.php?c=iva&a=index">Ivas</a>
+                            </li>';
                         }
                         if($user->role == 'cliente'){
                             echo'<li class="nav-item">
