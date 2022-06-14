@@ -35,7 +35,7 @@
 
             </p>
             <label for="preco">preco:</label><br>
-            <input type="number" step="0.01" name="preco" value="<?php if(isset($produto)) { echo $produto->preco; }?>">
+            <input type="number" min="0" step="0.01" name="preco" value="<?php if(isset($produto)) { echo $produto->preco; }else{echo '0';}?>">
             <p><?php
                 if(isset($produto->errors)) {
                     if (is_array($produto->errors->on('preco'))) {
@@ -51,7 +51,7 @@
 
 
             <label for="stock">stock:</label><br>
-            <input type="number" name="stock" value="<?php if(isset($produto)) { echo $produto->stock; }?>">
+            <input type="number" min="0" name="stock" value="<?php if(isset($produto)) { echo $produto->stock; }else{echo '0';}?>">
             <p><?php
                 if(isset($produto->errors)) {
                     if (is_array($produto->errors->on('stock'))) {

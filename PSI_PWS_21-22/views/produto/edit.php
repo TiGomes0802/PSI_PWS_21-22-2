@@ -16,11 +16,11 @@
             <p><?php if(isset($produto->errors)){ echo $produto->errors->on('descricao'); }?></p>
             <p></p>
             <label for="preco">Preço:</label><br>
-            <input type="text" name="preco" value="<?=$produto->preco?>"><brdisabled>
+            <input type="number" step="0.01" min="0" name="preco" value="<?=$produto->preco?>"><brdisabled>
             <p><?php if(isset($produto->errors)){ echo $produto->errors->on('preco'); }?></p>
             <p></p>
             <label for="stock">Stock:</label><br>
-            <input type="text" name="stock" value="<?=$produto->stock?>"><br>
+            <input type="number" min="0" name="stock" value="<?=$produto->stock?>"><br>
             <p><?php if(isset($produto->errors)){ echo $produto->errors->on('stock'); }?></p>
             <p></p>
                 <label for="iva_id">Percentagem Iva:</label><br>

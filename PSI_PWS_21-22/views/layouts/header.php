@@ -50,7 +50,7 @@
                             echo '" href="./router.php?c=user&a=index">Clientes</a>
                             </li>';
                             echo'<li class="nav-item">
-                                <a class="nav-link'; if($controller == 'user'){echo ' active'; }
+                                <a class="nav-link'; if($controller == 'produto'){echo ' active'; }
                             echo '" href="./router.php?c=produto&a=index">Produtos</a>
                             </li>';
                         }

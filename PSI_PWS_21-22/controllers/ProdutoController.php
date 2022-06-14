@@ -34,20 +34,22 @@ class ProdutoController extends BaseAuthController
 
     public function create()
     {
-        $ivas = Iva::all();
+        $ivas = Iva::find_all_by_emvigor([1]);
         $this->renderView('produto','create', ['ivas' => $ivas]);
     }
 
     public function store()
     {
         $produto = new Produto($_POST);
+        $ivas = Iva::find_all_by_emvigor([1]);
+
         if($produto->is_valid()){
             $produto->save();
             
             $this->redirectToRoute('produto','index');
         } else {
             //mostrar vista edit passando o modelo como parâmetro
-            $this->renderView('produto','create', ['produto' => $produto]);
+            $this->renderView('produto','create', ['produto' => $produto, 'ivas' => $ivas]);
         }
     }
 
@@ -66,6 +68,8 @@ class ProdutoController extends BaseAuthController
     public function update($id)
     {
         $produto = Produto::find([$id]);
+        $ivas = Iva::find_all_by_emvigor([1]);
+
         $produto->preco = $_POST['preco'];
         $produto->stock = $_POST['stock'];
         $produto->iva_id = $_POST['iva_id'];
@@ -77,7 +81,7 @@ class ProdutoController extends BaseAuthController
             $this->renderView('produto','index', ['produtos' => $produtos]);
         } else {
             //mostrar vista edit passando o modelo como parâmetro
-            $this->renderView('produto','edit', ['produto' => $produto]);
+            $this->renderView('produto','edit', ['produto' => $produto, 'ivas' => $ivas]);
         }
     }
 
