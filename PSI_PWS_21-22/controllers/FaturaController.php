@@ -8,9 +8,6 @@ class FaturaController extends BaseAuthController
     public function __construct()
     {
         $this->loginFilter();
-        //if ($this->getRole() == 'cliente'){
-        //    $this->redirectToRoute('fatura', 'minhasfaturas');
-        //}
     }
 
     public function index()
@@ -31,72 +28,111 @@ class FaturaController extends BaseAuthController
 
     public function show($id)
     {
-        $fatura = Fatura::find([$id]);
-        if (is_null($fatura)) {
-            //TODO redirect to standard error page
-        } else {
-            //mostrar a vista show passando os dados por parâmetro
-            $this->renderView('fatura','show', ['fatura' => $fatura]);
+        $auth = new Auth();
+        $user = $auth->getUser();
+
+        if($user->role != 'cliente'){
+            $fatura = Fatura::find([$id]);
+            if (is_null($fatura)) {
+                //TODO redirect to standard error page
+            } else {
+                //mostrar a vista show passando os dados por parâmetro
+                $this->renderView('fatura','show', ['fatura' => $fatura]);
+            }
+        }else {
+            $this->redirectToRoute('auth', 'index');
         }
 
     }
 
     public function create($id_cliente)
     {
-        //mostrar a vista create
-        $cliente = User::find_by_id($id_cliente);
+        $auth = new Auth();
+        $user = $auth->getUser();
 
-        $this->renderView('fatura','create', ['user' => $cliente]);
+        if($user->role != 'cliente'){
+            //mostrar a vista create
+            $cliente = User::find_by_id($id_cliente);
+
+            $this->renderView('fatura','create', ['user' => $cliente]);
+        }else {
+            $this->redirectToRoute('auth', 'index');
+        }
+
     }
 
     public function store($id_cliente)
     {
 
-        $fatura = new Fatura();
+        $auth = new Auth();
+        $user = $auth->getUser();
 
-        $fatura->estado = "em lançamento";
-        $fatura->valortotal = 0;
-        $fatura->ivatotal = 0;
-        $fatura->empregado_id = $_SESSION['id'];
-        $fatura->cliente_id = $id_cliente;
+        if($user->role != 'cliente'){
+            $fatura = new Fatura();
 
-        if($fatura->is_valid()){
-            $fatura->save();
-            //$this->redirectToRoute('linhasfatura', 'create',['fatura' => $fatura]);
-            $this->redirectToRoute('linhasfatura', "create&id_fatura=$fatura->id");
-        } else {
-            //mostrar vista edit passando o modelo como parâmetro
-            $this->renderView('fatura','create', ['fatura' => $fatura]);
+            $fatura->estado = "em lançamento";
+            $fatura->valortotal = 0;
+            $fatura->ivatotal = 0;
+            $fatura->empregado_id = $_SESSION['id'];
+            $fatura->cliente_id = $id_cliente;
+
+            if($fatura->is_valid()){
+                $fatura->save();
+                //$this->redirectToRoute('linhasfatura', 'create',['fatura' => $fatura]);
+                $this->redirectToRoute('linhasfatura', "create&id_fatura=$fatura->id");
+            } else {
+                //mostrar vista edit passando o modelo como parâmetro
+                $this->renderView('fatura','create', ['fatura' => $fatura]);
+            }
+        }else {
+            $this->redirectToRoute('auth', 'index');
         }
+
     }
 
     public function edit($id)
     {
-        $fatura_estado =  new Fatura();
 
-        $fatura = Fatura::find([$id]);
-        if (is_null($fatura) and $fatura_estado->Permitirestado($id)) {
-            $this->redirectToRoute('fatura', 'index');
-        } else {
-            //mostrar a vista edit passando os dados por parâmetro
-            $this->renderView('fatura','edit', ['fatura' => $fatura]);
+        $auth = new Auth();
+        $user = $auth->getUser();
+
+        if($user->role != 'cliente'){
+            $fatura_estado =  new Fatura();
+
+            $fatura = Fatura::find([$id]);
+            if (is_null($fatura) and $fatura_estado->Permitirestado($id)) {
+                $this->redirectToRoute('fatura', 'index');
+            } else {
+                //mostrar a vista edit passando os dados por parâmetro
+                $this->renderView('fatura','edit', ['fatura' => $fatura]);
+            }
+        }else {
+            $this->redirectToRoute('auth', 'index');
         }
+
     }
 
     public function updateestado($id)
     {
-        $fatura = Fatura::find([$id]);
+        $auth = new Auth();
+        $user = $auth->getUser();
 
-        $fatura->estado = "emitida";
+        if($user->role != 'cliente'){
+            $fatura = Fatura::find([$id]);
 
-        if($fatura->is_valid()){
-            $fatura->save();
-            //redirecionar para o index
-            $faturas = Fatura::all();
-            $this->renderView('fatura','index', ['faturas' => $faturas]);
-        } else {
-            //mostrar vista edit passando o modelo como parâmetro
-            $this->renderView('fatura','edit', ['fatura' => $fatura]);
+            $fatura->estado = "emitida";
+
+            if($fatura->is_valid()){
+                $fatura->save();
+                //redirecionar para o index
+                $faturas = Fatura::all();
+                $this->renderView('fatura','index', ['faturas' => $faturas]);
+            } else {
+                //mostrar vista edit passando o modelo como parâmetro
+                $this->renderView('fatura','edit', ['fatura' => $fatura]);
+            }
+        }else {
+            $this->redirectToRoute('auth', 'index');
         }
     }
 
@@ -106,10 +142,17 @@ class FaturaController extends BaseAuthController
         $user = $auth->getUser();
 
         if($user->role == 'cliente'){
-            $faturas = Fatura::find('all', array('conditions' => "cliente_id ='$user->id' and estado = 'emitida'"));
+            $auth = new Auth();
+            $user = $auth->getUser();
 
-            //mostrar a vista index passando os dados por parâmetro
-            $this->renderView('fatura', 'minhasfaturas', ['faturas' => $faturas]);
+            if($user->role == 'cliente'){
+                $faturas = Fatura::find('all', array('conditions' => "cliente_id ='$user->id' and estado = 'emitida'"));
+
+                //mostrar a vista index passando os dados por parâmetro
+                $this->renderView('fatura', 'minhasfaturas', ['faturas' => $faturas]);
+            }else {
+                $this->redirectToRoute('auth', 'index');
+            }
         }else {
             $this->redirectToRoute('auth', 'index');
         }
@@ -120,7 +163,7 @@ class FaturaController extends BaseAuthController
     {
         $auth = new Auth();
         $user = $auth->getUser();
-
+            
         $fatura = Fatura::find_by_id([$id_fatura]);
         $linhasfatura = Linhasfatura::find_all_by_fatura_id([$id_fatura]);
 
