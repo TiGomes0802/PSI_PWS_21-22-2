@@ -39,12 +39,6 @@ class UserController extends BaseAuthController
         }
     }
 
-    public function create()
-    {
-        //mostrar a vista create
-        $this->renderView('user','create');
-    }
-
     public function edit($id)
     {
         $user = User::find([$id]);
@@ -59,15 +53,18 @@ class UserController extends BaseAuthController
     public function update($id)
     {
         $user = User::find([$id]);
-        $user->update_attributes($_POST);
+        $user->email=$_POST['email'];
+        if ($_POST['password'] != null){
+            $user->password = md5($_POST['password']);
+        }
         if($user->is_valid()){
             $user->save();
             //redirecionar para o index
             $users = User::all();
-            $this->renderView('user','index', ['users' => $users]);
+            $this->redirectToRoute('user','index');
         } else {
             //mostrar vista edit passando o modelo como parâmetro
-            $this->renderView('user','edit', ['user' => $user]);
+            $this->renderView('user','edit', ['cliente' => $user]);
         }
     }
 

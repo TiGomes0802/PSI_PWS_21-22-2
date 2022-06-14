@@ -61,6 +61,11 @@
                 </ul>
                 <?php if(isset($_SESSION['id'])){
                     echo '<li class="nav-item"> <text style="color: white">'. $user->role .' - '. $user->username . ' <text></li>';
+                    if($user->role == 'funcionario' or $user->role == 'admin'){
+                        echo '<a class="nav-link" href="./router.php?c=user&a=edit&id='.$user->id.'">
+                            <button class="btn btn-sm btn-outline-light">Editar perfil</button>
+                        </a>';
+                    }
                     echo '<a class="nav-link" href="./router.php?c=auth&a=logout">
                             <button class="btn btn-sm btn-outline-warning">Logout</button>
                         </a>';
