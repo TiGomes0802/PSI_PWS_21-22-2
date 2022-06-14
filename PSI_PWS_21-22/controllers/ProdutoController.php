@@ -43,9 +43,8 @@ class ProdutoController extends BaseAuthController
         $produto = new Produto($_POST);
         if($produto->is_valid()){
             $produto->save();
-            //redirecionar para o index
-            $produtos = Produto::all();
-            $this->renderView('produto','index', ['produtos' => $produtos]);
+            
+            $this->redirectToRoute('produto','index');
         } else {
             //mostrar vista edit passando o modelo como parâmetro
             $this->renderView('produto','create', ['produto' => $produto]);
