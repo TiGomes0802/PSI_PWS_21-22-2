@@ -5,7 +5,7 @@
         <form action="./router.php?c=user&a=store_cliente" method="POST">
             <br>
 
-            <label for="username">username:</label><br>
+            <label for="username">Username:</label><br>
             <input type="text" name="username" value="<?php if(isset($cliente)) { echo $cliente->username; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
@@ -19,7 +19,7 @@
                 }
                 ?>
             </p><br>
-            <label for="password">password:</label><br>
+            <label for="password">Password:</label><br>
             <input type="password" name="password" value="<?php if(isset($cliente)) { echo $cliente->password; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
@@ -33,7 +33,7 @@
                 }
                 ?>
             </p><br>
-                <label for="email">email:</label><br>
+                <label for="email">Email:</label><br>
                 <input type="text" name="email" value="<?php if(isset($cliente)) { echo $cliente->email; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
@@ -47,7 +47,7 @@
                 }
                 ?>
             </p><br>
-                <label for="telefone">telefone:</label><br>
+                <label for="telefone">Telefone:</label><br>
                 <input type="number" name="telefone" value="<?php if(isset($cliente)) { echo $cliente->telefone; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
@@ -61,7 +61,7 @@
                 }
                 ?>
             </p><br>
-                <label for="nif">nif:</label><br>
+                <label for="nif">Nif:</label><br>
                 <input type="number" name="nif" value="<?php if(isset($cliente)) { echo $cliente->nif; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
@@ -75,7 +75,7 @@
                 }
                 ?>
             </p><br>
-                <label for="morada">morada:</label><br>
+                <label for="morada">Morada:</label><br>
                 <input type="text" name="morada" value="<?php if(isset($cliente)) { echo $cliente->morada; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
@@ -89,7 +89,7 @@
                 }
                 ?>
             </p><br>
-                <label for="codigopostal">codpostal:</label><br>
+                <label for="codigopostal">Código-Postal:</label><br>
                 <input type="text" name="codigopostal" value="<?php if(isset($cliente)) { echo $cliente->codigopostal; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
@@ -103,7 +103,7 @@
                 }
                 ?>
             </p><br>
-                <label for="localidade">localidade:</label><br>
+                <label for="localidade">Localidade:</label><br>
                 <input type="text" name="localidade" value="<?php if(isset($cliente)) { echo $cliente->localidade; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
