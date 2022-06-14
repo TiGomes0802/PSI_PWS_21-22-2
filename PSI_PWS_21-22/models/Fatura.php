@@ -3,7 +3,7 @@
 class Fatura extends \ActiveRecord\Model
 {
     static $validates_presence_of = array(
-        array('cliente_id', 'message' => 'Campo Obrigatorio', 'message' => 'Campo Obrigatorio'),
+        array('cliente_id', 'message' => 'Campo Obrigatorio'),
     );
 
     static $belongs_to = array(
