@@ -68,15 +68,6 @@ class UserController extends BaseAuthController
         }
     }
 
-    public function delete($id)
-    {
-        $user = User::find([$id]);
-        $user->delete();
-        //redirecionar para o index
-        $users = User::all();
-        $this->renderView('user','index', ['users' => $users]);
-    }
-
     public function create_cliente()
     {
         //mostrar a vista create

@@ -12,6 +12,14 @@ class Linhasfatura extends \ActiveRecord\Model
         array('fatura')
     );
 
+    public function validate()
+    {
+        if(static::exists(array("produto_id" => $this->produto_id)) && static::exists(array("fatura_id" => $this->fatura_id))) {
+            $this->errors->add('produto_id', 'Esse produto ja existe');
+        }
+
+    }
+
     function getValor($quantidade, $produto_id)
     {
         $produto = Produto::find([$produto_id]);
