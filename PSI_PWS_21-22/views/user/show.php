@@ -46,26 +46,26 @@
                     <th class="text-center"><h3>Empregado</h3></th>
                     </thead>
                     <tbody>
-                    <tr>
                         <?php if($faturas != null){
                             foreach ($faturas as $fatura) { ?>
-                                <td class="text-center"><?= date('Y/m/d H:i:s', strtotime($fatura->data)); ?></td>
-                                <td class="text-center"><?= number_format($fatura->valortotal,2); echo'€'; ?></td>
-                                <td class="text-center"><?= number_format($fatura->ivatotal,2); echo'€'; ?></td>
-                                <td class="text-center"><?= $fatura->user_empregado->username ?></td>
-                                <td class="text-center">
-                                    <?php
-                                    if($fatura->estado == "emitida"){
-                                        echo '<a target="_blank" href="router.php?c=fatura&a=imprimir&id_fatura='. $fatura->id .'"
-                                                   class="btn btn-info" role="button">Imprimir</a>';
-                                    }
-                                    ?>
-                                </td>
+                                <tr>
+                                    <td class="text-center"><?= date('Y/m/d H:i:s', strtotime($fatura->data)); ?></td>
+                                    <td class="text-center"><?= number_format($fatura->valortotal,2); echo'€'; ?></td>
+                                    <td class="text-center"><?= number_format($fatura->ivatotal,2); echo'€'; ?></td>
+                                    <td class="text-center"><?= $fatura->user_empregado->username ?></td>
+                                    <td class="text-center">
+                                        <?php if($fatura->estado == "emitida"){
+                                            echo '<a target="_blank" href="router.php?c=fatura&a=imprimir&id_fatura='. $fatura->id .'"
+                                                class="btn btn-info" role="button">Imprimir</a>';
+                                        } ?>
+                                    </td>
+                                </tr>
                             <?php }
                         }  else { ?>
-                            <td colspan="6" class="text-center "> Não tem nenhuma fatura</td>
+                            <tr>
+                                <td colspan="6" class="text-center "> Não tem nenhuma fatura</td>
+                            </tr>
                         <?php }  ?>
-                    </tr>
                     </tbody>
                 </table>
             </div>
