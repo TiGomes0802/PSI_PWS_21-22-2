@@ -4,6 +4,7 @@
     require_once 'controllers/EmpresaController.php';
     require_once 'controllers/FaturaController.php';
     require_once 'controllers/UserController.php';
+    require_once 'controllers/ProdutoController.php';
     require_once 'controllers/LinhasFaturaController.php';
 
     if(!(isset($_GET['c']) AND isset($_GET['a']))){
@@ -130,6 +131,36 @@
                     case 'delete':
                         $id = $_GET['id'];
                         $linhasfatura->delete($id);
+                        break;
+                }
+                break;
+            case 'produto':
+                $produto = new ProdutoController();
+                switch ($action) {
+                    case 'index':
+                        $produto->index();
+                        break;
+                    case 'create':
+                        $produto->create();
+                        break;
+                    case 'store':
+                        $produto->store();
+                        break;
+                    case 'show':
+                        $id = $_GET['id'];
+                        $produto->show($id);
+                        break;
+                    case 'edit':
+                        $id = $_GET['id'];
+                        $produto->edit($id);
+                        break;
+                    case 'update':
+                        $id = $_GET['id'];
+                        $produto->update($id);
+                        break;
+                    case 'delete':
+                        $id = $_GET['id'];
+                        $produto->delete($id);
                         break;
                 }
                 break;
