@@ -52,8 +52,6 @@ class FaturaController extends BaseAuthController
     public function store($id_cliente)
     {
 
-        //create new resource (activerecord/model) instance with data from POST
-        //your form name fields must match the ones of the table fields
         $fatura = new Fatura();
 
         $fatura->estado = "em lançamento";

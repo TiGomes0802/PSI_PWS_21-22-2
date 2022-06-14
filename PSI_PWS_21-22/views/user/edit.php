@@ -1,40 +1,54 @@
-<h2 class="text-left top-space">Empresa Edit</h2>
+<h2 class="text-left top-space">Editar perfil</h2>
 <h2 class="top-space"></h2>
 <div class="row">
     <div class="col-sm-12">
-        <form action="./router.php?c=empresa&a=update&id=<?=$empresa->id?>" method="POST">
+        <form action="./router.php?c=user&a=update&id=<?=$user->id?>" method="POST">
             <br>
             <label for="id">Id:</label><br>
-            <input type="text" name="id" value="<?=$empresa->id?>" disabled><br>
+            <input type="text" name="id" value="<?=$user->id?>" disabled><br>
             <p></p>
-            <label for="designacaosocial">Designação Social:</label><br>
-            <input type="text" name="designacaosocial" value="<?=$empresa->designacaosocial?>"><br>
-            <p><?php if(isset($empresa->errors)){ echo $empresa->errors->on('designacaosocial'); }?></p>
-            <p></p>
+            <label for="username">username:</label><br>
+            <input type="text" name="username" value="<?=$user->username?>" disabled><br>
+            <p><?php
+                if(isset($cliente->errors)) {
+                    if (is_array($cliente->errors->on('username'))) {
+                        foreach ($cliente->errors->on('username') as $error) {
+                            echo $error . '<br>';
+                        }
+                    } else {
+                        echo $cliente->errors->on('username');
+                    }
+                }
+                ?>
+            </p>
+            <label for="password">password:</label><br>
+            <input type="password" name="password" value=""><br>
+            <p><?php
+                if(isset($cliente->errors)) {
+                    if (is_array($cliente->errors->on('password'))) {
+                        foreach ($cliente->errors->on('password') as $error) {
+                            echo $error . '<br>';
+                        }
+                    } else {
+                        echo $cliente->errors->on('password');
+                    }
+                }
+                ?>
+            </p>
             <label for="email">Email:</label><br>
-            <input type="text" name="email" value="<?=$empresa->email?>"><br>
-            <p><?php if(isset($empresa->errors)){ echo $empresa->errors->on('email'); }?></p>
-            <p></p>
-            <label for="telefone">telefone:</label><br>
-            <input type="text" name="telefone" value="<?=$empresa->telefone?>"><br>
-            <p><?php if(isset($empresa->errors)){ echo $empresa->errors->on('telefone'); }?></p>
-            <p></p>
-            <label for="nif">NIF:</label><br>
-            <input type="text" name="nif" value="<?=$empresa->nif?>"><br>
-            <p><?php if(isset($empresa->errors)){ echo $empresa->errors->on('nif'); }?></p>
-            <p></p>
-            <label for="morada">Morada:</label><br>
-            <input type="text" name="morada" value="<?=$empresa->morada?>"><br>
-            <p><?php if(isset($empresa->errors)){ echo $empresa->errors->on('morada'); }?></p>
-            <p></p>
-            <label for="codigopostal">Codigo-Postal:</label><br>
-            <input type="text" name="codigopostal" value="<?=$empresa->codigopostal?>"><br>
-            <p><?php if(isset($empresa->errors)){ echo $empresa->errors->on('codigopostal'); }?></p>
-            <p></p>
-            <label for="localidade">Localidade:</label><br>
-            <input type="text" name="localidade" value="<?=$empresa->localidade?>"><br>
-            <p><?php if(isset($empresa->errors)){ echo $empresa->errors->on('localidade'); }?></p>
-            <p></p>
+            <input type="text" name="email" value="<?=$user->email?>"><br>
+            <p><?php
+                if(isset($cliente->errors)) {
+                    if (is_array($cliente->errors->on('email'))) {
+                        foreach ($cliente->errors->on('email') as $error) {
+                            echo $error . '<br>';
+                        }
+                    } else {
+                        echo $cliente->errors->on('email');
+                    }
+                }
+                ?>
+            </p>
 
             <br>
             <input type="submit" value="Submit">
