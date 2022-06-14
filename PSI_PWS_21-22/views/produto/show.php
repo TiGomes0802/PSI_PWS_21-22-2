@@ -10,8 +10,7 @@
             <th><h3>preco</h3></th>
             <th><h3>stock</h3></th>
             <th><h3>iva_id</h3></th>
-
-            <th><h3>User Actions</h3></th>
+            <th><h3></h3></th>
             </thead>
             <tbody>
             <tr>
@@ -23,9 +22,7 @@
                 <td><?= $produto->iva_id ?></td>
                 <td>
                     <a href="router.php?c=produto&a=edit&id=<?=$produto->id ?>"
-                       class="btn btn-info" role="button">Edit</a>
-                    <a href="router.php?c=produto&a=delete&id=<?=$produto->id ?>"
-                       class="btn btn-warning" role="button">Delete</a>
+                       class="btn btn-info" role="button">Adicionar stock</a>
                 </td>
             </tr>
             </tbody>

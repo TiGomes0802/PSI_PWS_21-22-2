@@ -34,6 +34,7 @@
                                     <p type="text"disabled>Cliente: <?= $fatura->user_cliente->username?><text>
                                     <p type="text"disabled>Email: <?= $fatura->user_cliente->email?><text>
                                     <p type="text"disabled>Nif: <?= $fatura->user_cliente->nif?><text>
+                                    <p type="text"disabled>data: <?= date('Y/m/d H:i:s', strtotime($fatura->data)); ?><text>
                                     <br>
                                     </div>
                                 </div>
@@ -72,14 +73,12 @@
                                     </div>
                             </div>
                             <br>
-
                             <div class="boxer">
                                 <div class="row end" id="row1">
                                     <div class="col-3">
                                         <label for="valortotal">Valor total:</label>
                                         <input type="text" name="valortotal" class="form-control" value="<?php if(isset($fatura)) { echo number_format($fatura->valortotal,2); }?>€"disabled>
                                     </div>
-
                                     <div class="col-3">
                                         <label for="ivatotal">Iva total:</label>
                                         <input type="text" name="ivatotal" class="form-control" value="<?php if(isset($fatura)) { echo number_format($fatura->ivatotal,2); }?>€" disabled>
@@ -87,7 +86,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <br>
                     </div>
                 </div>
