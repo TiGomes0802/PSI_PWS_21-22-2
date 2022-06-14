@@ -46,6 +46,7 @@ class LinhasFaturaController extends BaseAuthController
                 $linhafatura->fatura_id = $id_fatura;
 
                 if($linhafatura->is_valid()){
+
                     $produto->save();
                     $linhafatura->save();
 
@@ -59,14 +60,15 @@ class LinhasFaturaController extends BaseAuthController
 
                         $this->redirectToRoute('linhasfatura', 'create', ['id_fatura' => $fatura->id]);
                     }else{
+
                         $this->renderView('linhasfatura','create', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura]);
                     }
                 } else {
+
                     //mostrar vista edit passando o modelo como parâmetro
-                    $this->renderView('linhasfatura','create', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura]);
+                    $this->renderView('linhasfatura','create', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura, 'linhafatura' => $linhafatura]);
                 }
             }else {
-
                 $this->renderView('linhasfatura','create', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura, 'produto' => $produto]);
             }
         } else{

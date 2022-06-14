@@ -17,6 +17,7 @@ class Linhasfatura extends \ActiveRecord\Model
         if(static::exists(array("produto_id" => $this->produto_id)) && static::exists(array("fatura_id" => $this->fatura_id))) {
             $this->errors->add('produto_id', 'Esse produto ja existe');
         }
+
     }
 
     function getValor($quantidade, $produto_id)

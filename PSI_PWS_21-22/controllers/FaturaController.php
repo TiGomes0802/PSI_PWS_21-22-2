@@ -8,9 +8,9 @@ class FaturaController extends BaseAuthController
     public function __construct()
     {
         $this->loginFilter();
-        if ($this->getRole() == 'cliente'){
-            $this->redirectToRoute('fatura', 'minhasfaturas');
-        }
+        //if ($this->getRole() == 'cliente'){
+        //    $this->redirectToRoute('fatura', 'minhasfaturas');
+        //}
     }
 
     public function index()

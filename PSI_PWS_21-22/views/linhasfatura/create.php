@@ -33,13 +33,13 @@
                                         if(isset($naoproduto) and $naoproduto) {
                                             echo 'Produto inexistente';
                                         }
-                                        if(isset($linhasfatura->errors)) {
-                                            if (is_array($linhasfatura->errors->on('produto_id'))) {
-                                                foreach ($linhasfatura->errors->on('produto_id') as $error) {
+                                        if(isset($linhafatura->errors)) {
+                                            if (is_array($linhafatura->errors->on('produto_id'))) {
+                                                foreach ($linhafatura->errors->on('produto_id') as $error) {
                                                     echo $error .'<br>';
                                                 }
                                             } else {
-                                                echo $linhasfatura->errors->on('produto_id');
+                                                echo $linhafatura->errors->on('produto_id');
 
                                             }
                                         }
