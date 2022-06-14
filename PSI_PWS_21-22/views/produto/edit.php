@@ -23,21 +23,16 @@
             <input type="text" name="stock" value="<?=$produto->stock?>"><br>
             <p><?php if(isset($produto->errors)){ echo $produto->errors->on('stock'); }?></p>
             <p></p>
-            <label for="iva_id">Percentagem Iva:</label><br>
+                <label for="iva_id">Percentagem Iva:</label><br>
                 <select name="iva_id">
                     <?php foreach($ivas as $iva){?>
-                        <?php if($iva->id == $book->iva_id) { ?>
-                            <option value="<?= $iva->id?>" selected><?= $iva->percentagem;
-                                ?> </option>
-                        <?php }else { ?>
-                            <option value="<?= $iva->id?>"> <?= $iva->percentagem;
-                                ?></option>
-                        <?php }
-                    } ?>
+                        <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?></option>
+                    <?php } ?>
                 </select>
 
-            <br>
+            <br><br>
             <input type="submit" value="Submit">
+
         </form>
     </div>
 </div>

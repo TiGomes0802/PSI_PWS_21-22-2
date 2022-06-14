@@ -10,7 +10,7 @@
             <th><h3>Descrição</h3></th>
             <th><h3>Preço</h3></th>
             <th><h3>Stock</h3></th>
-            <th><h3>Percentagem Iva:</h3></th>
+            <th><h3>Iva %:</h3></th>
             </thead>
             <tbody>
             <?php foreach ($produtos as $produto) { ?>
@@ -19,12 +19,12 @@
                     <td><?=$produto->descricao?></td>
                     <td><?=$produto->preco?></td>
                     <td><?= $produto->stock?></td>
-                    <td><?= $produto->iva_id?></td>
+                    <td><?= $produto->iva->percentagem?></td>
                     <td>
                         <a href="router.php?c=produto&a=show&id=<?=$produto->id ?>"
                            class="btn btn-info" role="button">Show</a>
                         <a href="router.php?c=produto&a=edit&id=<?=$produto->id ?>"
-                           class="btn btn-info" role="button">Adicionar stock</a>
+                           class="btn btn-info" role="button">Editar Produto</a>
                     </td>
                 </tr>
             <?php } ?>

@@ -5,11 +5,11 @@
         <table class="table tablestriped">
             <thead>
             <th><h3>Id</h3></th>
-            <th><h3>referencia</h3></th>
-            <th><h3>descricao</h3></th>
-            <th><h3>preco</h3></th>
-            <th><h3>stock</h3></th>
-            <th><h3>iva_id</h3></th>
+            <th><h3>Referência</h3></th>
+            <th><h3>Descrição</h3></th>
+            <th><h3>Preço</h3></th>
+            <th><h3>Stock</h3></th>
+            <th><h3>Iva %</h3></th>
             <th><h3></h3></th>
             </thead>
             <tbody>
@@ -19,7 +19,7 @@
                 <td><?=$produto->descricao?></td>
                 <td><?= $produto->preco ?></td>
                 <td><?= $produto->stock ?></td>
-                <td><?= $produto->iva_id ?></td>
+                <td><?= $produto->iva->percentagem?></td>
                 <td>
                     <a href="router.php?c=produto&a=edit&id=<?=$produto->id ?>"
                        class="btn btn-info" role="button">Adicionar stock</a>

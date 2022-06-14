@@ -4,7 +4,7 @@
     <div class="col-sm-12">
         <form action="./router.php?c=produto&a=create" method="POST">
 
-            </p><br>
+
             <label for="referencia">Referência:</label><br>
             <input type="text" name="referencia" value="<?php if(isset($produto)) { echo $produto->referencia; }?>">
             <p><?php
@@ -18,7 +18,7 @@
                     }
                 }
                 ?>
-            </p><br>
+            </p>
 
             <label for="descricao">descricao:</label><br>
             <input type="text" name="descricao" value="<?php if(isset($produto)) { echo $produto->descricao; }?>">
@@ -34,7 +34,7 @@
                 }
                 ?>
 
-            </p><br>
+            </p>
             <label for="preco">preco:</label><br>
             <input type="number" name="preco" value="<?php if(isset($produto)) { echo $produto->preco; }?>">
             <p><?php
@@ -48,7 +48,7 @@
                     }
                 }
                 ?>
-            </p><br>
+            </p>
 
 
             <label for="stock">stock:</label><br>
@@ -65,15 +65,14 @@
                 }
                 ?>
 
-            <p></p>
+            <p>
             <label for="iva_id">Percentagem Iva:</label><br>
             <select name="iva_id">
                 <?php foreach($ivas as $iva){?>
                     <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?></option>
                 <?php } ?>
             </select>
-            </p><br>
-
+            <p>
             <input type="submit" value="Submit">
         </form>
     </div>

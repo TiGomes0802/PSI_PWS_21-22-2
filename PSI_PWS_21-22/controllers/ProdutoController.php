@@ -34,8 +34,8 @@ class ProdutoController extends BaseAuthController
 
     public function create()
     {
-        $iva= Iva::all();
-        $this->renderView('produto','create', ['iva', $iva]);
+        $ivas = Iva::all();
+        $this->renderView('produto','create', ['ivas' => $ivas]);
     }
 
     public function store()
@@ -60,14 +60,17 @@ class ProdutoController extends BaseAuthController
             //TODO redirect to standard error page
         } else {
             //mostrar a vista edit passando os dados por parâmetro
-            $this->renderView('produto','edit', ['ivas' => $iva]);
+            $this->renderView('produto','edit', ['ivas' => $iva, 'produto' => $produto]);
         }
     }
 
     public function update($id)
     {
         $produto = Produto::find([$id]);
-        $produto->update_attributes($_POST);
+        $produto->preco = $_POST['preco'];
+        $produto->stock = $_POST['stock'];
+        $produto->iva_id = $_POST['iva_id'];
+
         if($produto->is_valid()){
             $produto->save();
             //redirecionar para o index
