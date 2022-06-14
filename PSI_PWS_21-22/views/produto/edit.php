@@ -26,7 +26,7 @@
                 <label for="iva_id">Percentagem Iva:</label><br>
                 <select name="iva_id">
                     <?php foreach($ivas as $iva){?>
-                        <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?></option>
+                        <option value="<?= $iva->id?>"> <?= $iva->percentagem; ?>%</option>
                     <?php } ?>
                 </select>
 
