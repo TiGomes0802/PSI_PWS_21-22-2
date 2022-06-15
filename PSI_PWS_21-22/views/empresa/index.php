@@ -4,14 +4,14 @@
     <div class="col-sm-12">
         <table class="table tablestriped">
             <thead>
-                <th><h3>designacaosocial</h3></th>
-                <th><h3>email</h3></th>
-                <th><h3>telefone</h3></th>
-                <th><h3>nif</h3></th>
-                <th><h3>morada</h3></th>
-                <th><h3>codigopostal</h3></th>
-                <th><h3>localidade</h3></th>
-                <th><h3>capitalsocial</h3></th>
+                <th class="text-center"><h3>designacaosocial</h3></th>
+                <th class="text-center"><h3>email</h3></th>
+                <th class="text-center"><h3>telefone</h3></th>
+                <th class="text-center"><h3>nif</h3></th>
+                <th class="text-center"><h3>morada</h3></th>
+                <th class="text-center"><h3>codigopostal</h3></th>
+                <th class="text-center"><h3>localidade</h3></th>
+                <th class="text-center"><h3>capitalsocial</h3></th>
             </thead>
             <tbody>
                 <?php foreach ($empresas as $empresa) { ?>
