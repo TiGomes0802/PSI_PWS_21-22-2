@@ -16,7 +16,7 @@
             <p><?php if(isset($iva->errors)){ echo $iva->errors->on('descricao'); }?></p>
             <p></p>
             <label for="emvigor">Em Vigor:</label><br>
-            <input type="number"  min="0" name="emvigor" value="<?=$iva->emvigor?>"><brdisabled>
+            <input type="number"  min="0" max="1" name="emvigor" value="<?=$iva->emvigor?>"><brdisabled>
                 <p><?php if(isset($iva->errors)){ echo $iva->errors->on('emvigor'); }?></p>
                 <p></p>
 

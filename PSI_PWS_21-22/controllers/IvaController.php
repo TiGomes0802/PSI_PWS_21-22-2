@@ -56,7 +56,7 @@ class IvaController extends BaseAuthController
     public function edit($id)
     {
         $iva = Iva::find([$id]);
-       
+
         if (is_null($iva)) {
             //TODO redirect to standard error page
         } else {

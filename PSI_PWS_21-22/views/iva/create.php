@@ -35,7 +35,7 @@
 
             </p>
             <label for="emvigor">Em Vigor:</label><br>
-            <input type="number" min="0" step="0.01" name="emvigor" value="<?php if(isset($iva)) { echo $iva->emvigor; }else{echo '0';}?>">
+            <input type="number" min="0" max="1" step="0.01" name="emvigor" value="<?php if(isset($iva)) { echo $iva->emvigor; }else{echo '0';}?>">
             <p><?php
                 if(isset($iva->errors)) {
                     if (is_array($iva->errors->on('emvigor'))) {
