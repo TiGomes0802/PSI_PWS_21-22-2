@@ -154,7 +154,7 @@ class FaturaController extends BaseAuthController
                 $this->redirectToRoute('auth', 'index');
             }
         }else {
-            $this->redirectToRoute('auth', 'index');
+            $this->redirectToRoute('fatura', 'index');
         }
 
     }

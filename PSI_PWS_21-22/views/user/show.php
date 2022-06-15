@@ -44,6 +44,7 @@
                     <th class="text-center"><h3>Iva total</h3></th>
                     <th class="text-center"><h3>Estado</h3></th>
                     <th class="text-center"><h3>Empregado</h3></th>
+                    <th class="text-center"><h3></h3></th>
                     </thead>
                     <tbody>
                         <?php if($faturas != null){
@@ -52,12 +53,18 @@
                                     <td class="text-center"><?= date('Y/m/d H:i:s', strtotime($fatura->data)); ?></td>
                                     <td class="text-center"><?= number_format($fatura->valortotal,2); echo'€'; ?></td>
                                     <td class="text-center"><?= number_format($fatura->ivatotal,2); echo'€'; ?></td>
+                                    <td class="text-center"><?= $fatura->estado ?></td>
                                     <td class="text-center"><?= $fatura->user_empregado->username ?></td>
                                     <td class="text-center">
-                                        <?php if($fatura->estado == "emitida"){
+                                        <?php
+                                        if($fatura->estado == "em lançamento"){
+                                            echo '<a href="router.php?c=linhasfatura&a=create&id_fatura='. $fatura->id .'"
+                                            class="btn btn-info" role="button">Adicinar produto</a>';
+                                        }else if($fatura->estado == "emitida"){
                                             echo '<a target="_blank" href="router.php?c=fatura&a=imprimir&id_fatura='. $fatura->id .'"
-                                                class="btn btn-info" role="button">Imprimir</a>';
-                                        } ?>
+                                            class="btn btn-info" role="button">Imprimir</a>';
+                                        }
+                                        ?>
                                     </td>
                                 </tr>
                             <?php }
