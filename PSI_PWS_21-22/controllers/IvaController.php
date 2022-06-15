@@ -68,11 +68,8 @@ class IvaController extends BaseAuthController
     public function update($id)
     {
         $iva = Iva::find([$id]);
-        $ivas = Iva::find_all_by_emvigor([1]);
 
-        $iva->preco = $_POST['preco'];
-        $iva->stock = $_POST['stock'];
-        $iva->iva_id = $_POST['iva_id'];
+        $iva->update_attributes($_POST);
 
         if($iva->is_valid()){
             $iva->save();
@@ -81,7 +78,7 @@ class IvaController extends BaseAuthController
             $this->renderView('iva','index', ['ivas' => $ivas]);
         } else {
             //mostrar vista edit passando o modelo como parâmetro
-            $this->renderView('iva','edit', ['iva' => $iva, 'ivas' => $ivas]);
+            $this->renderView('iva','edit', ['iva' => $iva]);
         }
     }
 

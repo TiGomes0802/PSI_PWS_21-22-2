@@ -1,4 +1,4 @@
-<h2 class="text-left top-space">Produtos</h2>
+<h2 class="text-left top-space">Criar Produto</h2>
 <h2 class="top-space"></h2>
 <div class="row">
     <div class="col-sm-12">

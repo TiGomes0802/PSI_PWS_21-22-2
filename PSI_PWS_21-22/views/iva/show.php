@@ -1,4 +1,4 @@
-<h2 class="text-left top-space">Produtos Show</h2>
+<h2 class="text-left top-space">Iva Show</h2>
 <h2 class="top-space"></h2>
 <div class="row">
     <div class="col-sm-12">
@@ -14,13 +14,13 @@
             <tbody>
             <tr>
                 <td><?=$iva->id?></td>
-                <td><?=$iva->percentagem?></td>
+                <td><?=$iva->percentagem?>%</td>
                 <td><?=$iva->descricao?></td>
                 <td><?= $iva->emvigor ?></td>
 
                 <td>
                     <a href="router.php?c=iva&a=edit&id=<?=$iva->id ?>"
-                       class="btn btn-info" role="button">Adicionar stock</a>
+                       class="btn btn-info" role="button">Editar</a>
                 </td>
             </tr>
             </tbody>

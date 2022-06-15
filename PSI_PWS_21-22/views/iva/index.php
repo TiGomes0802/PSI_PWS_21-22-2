@@ -14,15 +14,14 @@
             <tbody>
             <?php foreach ($ivas as $iva) { ?>
                 <tr>
-                    <td><?=$iva->percentagem?></td>
+                    <td><?=$iva->percentagem?>%</td>
                     <td><?=$iva->descricao?></td>
                     <td><?=$iva->emvigor?></td>
 
                     <td>
                         <a href="router.php?c=iva&a=show&id=<?=$iva->id ?>"
                            class="btn btn-info" role="button">Show</a>
-                        <a href="router.php?c=iva&a=edit&id=<?=$iva->id ?>"
-                           class="btn btn-info" role="button">Editar Produto</a>
+
                     </td>
                 </tr>
             <?php } ?>
