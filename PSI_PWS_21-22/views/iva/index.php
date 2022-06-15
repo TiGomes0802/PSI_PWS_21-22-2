@@ -6,18 +6,17 @@
     <div class="col-sm-12">
         <table class="table tablestriped">
             <thead>
-            <th><h3>Percentagem</h3></th>
-            <th><h3>Descrição</h3></th>
-            <th><h3>Em Vigor</h3></th>
-            <th><h3></h3></th>
+            <th class="text-center"><h3>Percentagem</h3></th>
+            <th class="text-center"><h3>Descrição</h3></th>
+            <th class="text-center"><h3>Em Vigor</h3></th>
+            <th class="text-center"><h3></h3></th>
             </thead>
             <tbody>
             <?php foreach ($ivas as $iva) { ?>
                 <tr>
-                    <td><?=$iva->percentagem?>%</td>
-                    <td><?=$iva->descricao?></td>
-                    <td><?=$iva->emvigor?></td>
-
+                    <td class="text-center"><?=$iva->percentagem?>%</td>
+                    <td class="text-center"><?=$iva->descricao?></td>
+                    <td class="text-center"><?=$iva->emvigor?></td>
                     <td>
                         <a href="router.php?c=iva&a=show&id=<?=$iva->id ?>"
                            class="btn btn-info" role="button">Show</a>
@@ -31,5 +30,3 @@
 
 </div>
 </div>
-
-'
