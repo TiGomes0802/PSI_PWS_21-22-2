@@ -56,12 +56,12 @@ class IvaController extends BaseAuthController
     public function edit($id)
     {
         $iva = Iva::find([$id]);
-        $iva= Iva::all();
+       
         if (is_null($iva)) {
             //TODO redirect to standard error page
         } else {
             //mostrar a vista edit passando os dados por parâmetro
-            $this->renderView('iva','edit', ['ivas' => $iva, 'iva' => $iva]);
+            $this->renderView('iva','edit', [ 'iva' => $iva]);
         }
     }
 
