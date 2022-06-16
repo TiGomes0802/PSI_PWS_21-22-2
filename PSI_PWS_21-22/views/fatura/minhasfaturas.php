@@ -7,7 +7,6 @@
                 <th class="text-center"><h3>Data</h3></th>
                 <th class="text-center"><h3>Valor total</h3></th>
                 <th class="text-center"><h3>Iva total</h3></th>
-                <th class="text-center"><h3>Estado</h3></th>
                 <th class="text-center"><h3>Empregado</h3></th>
                 <th class="text-center"><h3></h3></th>
             </thead>
@@ -20,7 +19,6 @@
                         <td class="text-center"><?= number_format($fatura->valortotal,2); echo'€'; ?></td>
                         <td class="text-center"><?= number_format($fatura->ivatotal,2); echo'€'; ?></td>
                         <td class="text-center"><?= $fatura->user_empregado->username ?></td>
-                        <td class="text-center"><?= $fatura->user_cliente->username ?></td>
                         <td class="text-center">
                             <?php
                             if($fatura->estado == "emitida"){
