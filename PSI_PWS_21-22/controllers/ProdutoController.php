@@ -85,4 +85,17 @@ class ProdutoController extends BaseAuthController
         }
     }
 
+    public function escolher_produto($fatura_id)
+    {
+        if (isset($_POST['pesquisa'])){
+            $pesquisa = $_POST['pesquisa'];
+        } else {
+            $pesquisa = '';
+        }
+        $produtos = Produto::find('all', array('conditions' => "descricao LIKE '%$pesquisa%'"));
+
+        //mostrar a vista index passando os dados por parâmetro
+        $this->renderView('produto', 'escolher_produto', ['produtos' => $produtos, 'fatura_id' => $fatura_id]);
+    }
+
 }

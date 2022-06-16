@@ -10,7 +10,12 @@
         </form>
     </div>
     <div class="col-sm-2 text-center">
-        <a href="router.php?c=user&a=create_cliente" class="btn w-100 p-2 btn-info">Criar novo cliente</a>
+        <?php if($user->role == 'admin'){
+            echo '<a href="router.php?c=user&a=create_user" class="btn w-100 p-2 btn-info">Criar user</a>';
+        } else if($user->role == 'funcionario'){
+            echo '<a href="router.php?c=user&a=create_cliente" class="btn w-100 p-2 btn-info">Criar novo cliente</a>';
+        }
+        ?>
     </div>
 </div>
 <h3 class="text-left top-space">Lista de clientes</h3>
@@ -18,7 +23,6 @@
     <div class="col-sm-12">
         <table class="table tablestriped">
             <thead>
-                <th class="text-center"><h3>Id</h3></th>
                 <th class="text-center"><h3>Username</h3></th>
                 <th class="text-center"><h3>Email</h3></th>
                 <th class="text-center"><h3>Telefone</h3></th>
@@ -31,7 +35,6 @@
             <tbody>
                 <?php foreach ($clientes as $cliente) { ?>
                     <tr id="list">
-                        <td class="text-center"><?=$cliente->id?></td>
                         <td class="text-center clientes"><?=$cliente->username?></td>
                         <td class="text-center"><?=$cliente->email?></td>
                         <td class="text-center"><?=$cliente->telefone?></td>
