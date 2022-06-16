@@ -5,7 +5,7 @@
         <form action="./router.php?c=iva&a=store" method="POST">
 
             <label for="percentagem">Percentagem:</label><br>
-            <input type="text" name="percentagem" value="<?php if(isset($iva)) { echo $iva->percentagem; }?>">
+            <input class="input-forms" type="text" name="percentagem" value="<?php if(isset($iva)) { echo $iva->percentagem; }?>">
             <p><?php
                 if(isset($iva->errors)) {
                     if (is_array($iva->errors->on('percentagem'))) {
@@ -20,7 +20,7 @@
             </p>
 
             <label for="descricao">Descrição:</label><br>
-            <input type="text" name="descricao" value="<?php if(isset($iva)) { echo $iva->descricao; }?>">
+            <input class="input-forms" type="text" name="descricao" value="<?php if(isset($iva)) { echo $iva->descricao; }?>">
             <p><?php
                 if(isset($iva->errors)) {
                     if (is_array($iva->errors->on('descricao'))) {
@@ -35,7 +35,7 @@
 
             </p>
             <label for="emvigor">Em Vigor:</label><br>
-            <input type="number" min="0" max="1" step="0.01" name="emvigor" value="<?php if(isset($iva)) { echo $iva->emvigor; }else{echo '0';}?>">
+            <input class="input-forms" type="number" min="0" max="1" step="0.01" name="emvigor" value="<?php if(isset($iva)) { echo $iva->emvigor; }else{echo '0';}?>">
             <p><?php
                 if(isset($iva->errors)) {
                     if (is_array($iva->errors->on('emvigor'))) {
@@ -51,7 +51,7 @@
 
 
 
-                <input type="submit" value="Criar Iva">
+                <input  type="submit" value="Criar Iva">
         </form>
     </div>
 </div>

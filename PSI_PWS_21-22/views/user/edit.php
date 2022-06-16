@@ -5,10 +5,10 @@
         <form action="./router.php?c=user&a=update&id=<?=$user->id?>" method="POST">
             <br>
             <label for="id">Id:</label><br>
-            <input type="text" name="id" value="<?=$user->id?>" disabled><br>
+            <input class="input-forms" type="text" name="id" value="<?=$user->id?>" disabled><br>
             <p></p>
             <label for="username">username:</label><br>
-            <input type="text" name="username" value="<?=$user->username?>" disabled><br>
+            <input class="input-forms" type="text" name="username" value="<?=$user->username?>" disabled><br>
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('username'))) {
@@ -22,7 +22,7 @@
                 ?>
             </p>
             <label for="password">password:</label><br>
-            <input type="password" name="password" value=""><br>
+            <input class="input-forms" type="password" name="password" value=""><br>
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('password'))) {
@@ -36,7 +36,7 @@
                 ?>
             </p>
             <label for="email">Email:</label><br>
-            <input type="text" name="email" value="<?=$user->email?>"><br>
+            <input class="input-forms" type="text" name="email" value="<?=$user->email?>"><br>
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('email'))) {
