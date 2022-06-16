@@ -28,15 +28,23 @@ class UserController extends BaseAuthController
 
     public function index_all_user()
     {
-        if (isset($_POST['pesquisa'])){
-            $pesquisa = $_POST['pesquisa'];
-        } else {
-            $pesquisa = '';
-        }
-        $users = User::find('all', array('conditions' => "username LIKE '%$pesquisa%' or role LIKE '%$pesquisa%'"));
 
-        //mostrar a vista index passando os dados por parâmetro
-        $this->renderView('user', 'index_all_user', ['users' => $users]);
+        $auth = new Auth();
+        $user = $auth->getUser();
+
+        if($user->role == 'admin') {
+            if (isset($_POST['pesquisa'])) {
+                $pesquisa = $_POST['pesquisa'];
+            } else {
+                $pesquisa = '';
+            }
+            $users = User::find('all', array('conditions' => "username LIKE '%$pesquisa%' or role LIKE '%$pesquisa%'"));
+
+            //mostrar a vista index passando os dados por parâmetro
+            $this->renderView('user', 'index_all_user', ['users' => $users]);
+        }else{
+            $this->redirectToRoute('fatura', 'index');
+        }
     }
 
     public function show($id)
