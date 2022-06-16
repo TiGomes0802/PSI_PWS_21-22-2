@@ -264,7 +264,7 @@ submit {
     box-sizing: border-box;
 }
 
-input.sub[type=submit] {
+input[type=submit] {
     width: 30%;
     background-color: #31d2f2;
     color: black;
