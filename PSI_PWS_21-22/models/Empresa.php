@@ -19,12 +19,4 @@ class Empresa extends \ActiveRecord\Model
         array('telefone', 'minimum' => 9, 'too_short' => 'too short!'),
   );
 
-    //public function getEmpresa()
-    //{
-    //    $empresa = Empresa::find(1);
-    //    var_dump($empresa);
-    //    die;
-    //    return $empresa;
-    //}
-
 }
