@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col">
-        <h2 class="text-left top-space">Lista des Produtos</h2>
+        <h2 class="text-left top-space">Lista de Produtos</h2>
     </div>
     <div class="col-sm-2 text-center">
         <a href="router.php?c=produto&a=create" class="btn w-100 p-2 btn-info">Criar Produto</a>
