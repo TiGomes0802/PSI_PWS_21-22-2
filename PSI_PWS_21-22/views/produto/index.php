@@ -1,7 +1,9 @@
 <h2 class="text-left top-space">Produto Index</h2>
 <h2 class="top-space"></h2>
+<div style="text-align: right">
 <a href="router.php?c=produto&a=create" class="btn btn-info"
    role="button">Criar Novo Produto</a>
+</div>
 <div class="row">
     <div class="col-sm-12">
         <table class="table tablestriped">

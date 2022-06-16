@@ -18,10 +18,7 @@
                 <td class="text-center"><?=$iva->descricao?></td>
                 <td class="text-center"><?= $iva->emvigor ?></td>
 
-                <td>
-                    <a href="router.php?c=iva&a=edit&id=<?=$iva->id ?>"
-                       class="btn btn-info" role="button">Editar</a>
-                </td>
+
             </tr>
             </tbody>
         </table>
