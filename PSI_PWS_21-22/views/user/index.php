@@ -2,7 +2,7 @@
     <div class="col">
         <form action="router.php?c=user&a=index" method="post">
             <div class="input-group mb-3">
-                <input type="search" class="form-control" name="pesquisa" placeholder="Pesquisar Cliente" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="search" class="form-control" name="pesquisa" placeholder="Pesquisar Cliente por username" aria-label="Recipient's username" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-outline-secondary " type="button">&#128269;</button>
                 </div>

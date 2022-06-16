@@ -56,12 +56,12 @@ class ProdutoController extends BaseAuthController
     public function edit($id)
     {
         $produto = Produto::find([$id]);
-        $iva= Iva::all();
+        $ivas = Iva::find_all_by_emvigor([1]);
         if (is_null($produto)) {
             //TODO redirect to standard error page
         } else {
             //mostrar a vista edit passando os dados por parâmetro
-            $this->renderView('produto','edit', ['ivas' => $iva, 'produto' => $produto]);
+            $this->renderView('produto','edit', ['ivas' => $ivas, 'produto' => $produto]);
         }
     }
 

@@ -31,7 +31,7 @@
                 </select>
 
             <br><br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Editar Produto">
 
         </form>
     </div>

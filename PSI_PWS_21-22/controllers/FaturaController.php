@@ -16,7 +16,7 @@ class FaturaController extends BaseAuthController
         $user = $auth->getUser();
 
         if($user->role != 'cliente'){
-            $faturas = Fatura::all();
+            $faturas = Fatura::find('all', array('order' => 'data desc'));
 
             //mostrar a vista index passando os dados por parâmetro
             $this->renderView('fatura', 'index', ['faturas' => $faturas]);

@@ -5,6 +5,7 @@
     require_once 'controllers/FaturaController.php';
     require_once 'controllers/UserController.php';
     require_once 'controllers/ProdutoController.php';
+    require_once 'controllers/IvaController.php';
     require_once 'controllers/LinhasFaturaController.php';
 
     if(!(isset($_GET['c']) AND isset($_GET['a']))){
@@ -162,6 +163,37 @@
                     case 'escolher_produto':
                         $fatura_id = $_GET['id_fatura'];
                         $produto->escolher_produto($fatura_id);
+                        break;
+                }
+                break;
+
+            case 'iva':
+                $iva = new IvaController();
+                switch ($action) {
+                    case 'index':
+                        $iva->index();
+                        break;
+                    case 'create':
+                        $iva->create();
+                        break;
+                    case 'store':
+                        $iva->store();
+                        break;
+                    case 'show':
+                        $id = $_GET['id'];
+                        $iva->show($id);
+                        break;
+                    case 'edit':
+                        $id = $_GET['id'];
+                        $iva->edit($id);
+                        break;
+                    case 'update':
+                        $id = $_GET['id'];
+                        $iva->update($id);
+                        break;
+                    case 'delete':
+                        $id = $_GET['id'];
+                        $iva->delete($id);
                         break;
                 }
                 break;
