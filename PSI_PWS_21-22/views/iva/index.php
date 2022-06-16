@@ -26,10 +26,11 @@
                             echo 'Não vigor';
                         }
                         ?></td>
-                    <td>
+                    <td class="text-center">
                         <a href="router.php?c=iva&a=show&id=<?=$iva->id ?>"
                            class="btn btn-info" role="button">Show</a>
-
+                        <a href="router.php?c=iva&a=edit&id=<?=$iva->id ?>"
+                           class="btn btn-info" role="button">Editar</a>
                     </td>
                 </tr>
             <?php } ?>

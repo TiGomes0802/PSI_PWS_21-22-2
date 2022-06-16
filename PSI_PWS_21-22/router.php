@@ -191,10 +191,6 @@
                         $id = $_GET['id'];
                         $iva->update($id);
                         break;
-                    case 'delete':
-                        $id = $_GET['id'];
-                        $iva->delete($id);
-                        break;
                 }
                 break;
         }

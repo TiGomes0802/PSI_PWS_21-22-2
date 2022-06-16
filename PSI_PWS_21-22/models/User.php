@@ -26,6 +26,25 @@ class User extends \ActiveRecord\Model
     array('codigopostal', 'with' => '/^[0-9_]{4,4}+([0-9_]+)*[-][0-9_]{2,2}+([0-9_])$/' , 'message' => 'codigopostal invalido, formato valido = (xxxx-xxx)')
   );
 
+    public function validate()
+    {
+        //if(static::exists(array("username" => $this->username))) {
+        //    $this->errors->add('username', 'Esse username já está associado.');
+        //}
+
+        //if(static::exists(array("email" => $this->email))) {
+        //    $this->errors->add('email', 'Esse email já está associado.');
+        //}
+
+        //if(static::exists(array("telefone" => $this->telefone))) {
+        //    $this->errors->add('telefone', 'Esse telefone já está associado.');
+        //}
+
+        //if(static::exists(array("nif" => $this->nif))) {
+        //    $this->errors->add('nif', 'Esse nif já está associado.');
+        //}
+    }
+
     static $has_many = array(
         array('faturas')
     );
