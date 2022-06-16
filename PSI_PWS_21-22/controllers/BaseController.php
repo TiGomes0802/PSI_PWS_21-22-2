@@ -22,10 +22,11 @@ class BaseController
             $controller = $_GET['c'];
         }
 
-        $empresa = Empresa::find([1]);
+        $auth = new Auth();
+
+        $empresa = $auth->getEmpresa();
 
         if(isset($_SESSION['id'])){
-            $auth = new Auth();
             $user = $auth->getUser();
         }
 
@@ -36,6 +37,10 @@ class BaseController
 
     public function pageimprimirfatura($controllerPrefix, $viewName, $params = []) {
         extract($params);
+
+        $auth = new Auth();
+
+        $empresa = $auth->getEmpresa();
 
         require_once 'views/'. $controllerPrefix . '/'. $viewName .'.php';
     }

@@ -25,25 +25,52 @@
                         <br>
                         <div id="product_form">
                             <div class="row">
-
+                                <div class="col-2">
+                                    <p></p>
+                                    <button type="button" class="btn btn-sm btn-light shadow-sm">
+                                        <a class="btn" href="./router.php?c=produto&a=escolher_produto&id_fatura=<?=$fatura->id?>">
+                                            Procurar Produto
+                                        </a>
+                                    </button>
+                                </div>
                                 <div class="col">
                                     <label>Referencia do produto</label>
-                                    <input type="text" name="referencia" class="form-control">
-                                    <p><?php
-                                        if(isset($naoproduto) and $naoproduto) {
-                                            echo 'Produto inexistente';
-                                        }
-                                        if(isset($linhafatura->errors)) {
-                                            if (is_array($linhafatura->errors->on('produto_id'))) {
-                                                foreach ($linhafatura->errors->on('produto_id') as $error) {
-                                                    echo $error .'<br>';
-                                                }
-                                            } else {
-                                                echo $linhafatura->errors->on('produto_id');
-
+                                    <?php if(isset($produto)){?>
+                                        <input type="text" name="referencia" class="form-control" value="<?=$produto->referencia?>">
+                                        <p><?php
+                                            if(isset($naoproduto) and $naoproduto) {
+                                                echo 'Produto inexistente';
                                             }
-                                        }
-                                        ?></p>
+                                            if(isset($linhafatura->errors)) {
+                                                if (is_array($linhafatura->errors->on('produto_id'))) {
+                                                    foreach ($linhafatura->errors->on('produto_id') as $error) {
+                                                        echo $error .'<br>';
+                                                    }
+                                                } else {
+                                                    echo $linhafatura->errors->on('produto_id');
+
+                                                }
+                                            }
+                                            ?></p>
+                                    <?php }else{ ?>
+                                        <input type="text" name="referencia" class="form-control" value="">
+                                        <p><?php
+                                            if(isset($naoproduto) and $naoproduto) {
+                                                echo 'Produto inexistente';
+                                            }
+                                            if(isset($linhafatura->errors)) {
+                                                if (is_array($linhafatura->errors->on('produto_id'))) {
+                                                    foreach ($linhafatura->errors->on('produto_id') as $error) {
+                                                        echo $error .'<br>';
+                                                    }
+                                                } else {
+                                                    echo $linhafatura->errors->on('produto_id');
+
+                                                }
+                                            }
+                                            ?></p>
+                                    <?php }?>
+
                                 </div>
                                 <div class="col-2">
                                     <label>Quantidade</label>

@@ -41,4 +41,11 @@ class Auth
         return $user;
     }
 
+    public function getEmpresa()
+    {
+        $empresa = Empresa::find([1]);
+
+        return $empresa;
+    }
+
 }

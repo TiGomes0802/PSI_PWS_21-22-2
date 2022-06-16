@@ -8,8 +8,6 @@
 
     <title><?php echo APP_NAME?></title>
 
-    <script src="././public/js/script.js"></script>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sticky-footer-navbar/">
 
     <!-- Bootstrap core CSS -->
@@ -58,6 +56,12 @@
                             echo '" href="./router.php?c=iva&a=index">Ivas</a>
                             </li>';
                         }
+                        if( $user->role == 'admin'){
+                            echo'<li class="nav-item">
+                                <a class="nav-link'; if($controller == 'user'){echo ' active'; }
+                            echo '" href="./router.php?c=user&a=index_all_user">Users</a>
+                            </li>';
+                        }
                         if($user->role == 'cliente'){
                             echo'<li class="nav-item">
                                 <a class="nav-link'; if($controller == 'fatura'){echo ' active'; }
@@ -83,6 +87,7 @@
         </div>
     </nav>
 </header>
+<p></p>
 
 <!-- Begin page content -->
 <main class="flex-shrink-0">

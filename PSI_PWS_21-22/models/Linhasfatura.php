@@ -14,7 +14,9 @@ class Linhasfatura extends \ActiveRecord\Model
 
     public function validate()
     {
-        if(static::exists(array("produto_id" => $this->produto_id)) && static::exists(array("fatura_id" => $this->fatura_id))) {
+
+        if(static::exists(array("produto_id" => $this->produto_id, "fatura_id" => $this->fatura_id))) {
+
             $this->errors->add('produto_id', 'Esse produto ja existe');
         }
 

@@ -13,14 +13,19 @@ class LinhasFaturaController extends BaseAuthController
         }
     }
 
-    public function create($id_fatura)
+    public function create($id_fatura, $id_produto)
     {
         $fatura = Fatura::find_by_id([$id_fatura]);
         if ($fatura->estado !="emitida"){
             $linhasfatura = Linhasfatura::find_all_by_fatura_id([$id_fatura]);
 
             //mostrar a vista create
-            $this->renderView('linhasfatura','create', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura]);
+            if ($id_produto != 0){
+                $produto = Produto::find_by_id([$id_produto]);
+                $this->renderView('linhasfatura','create', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura, 'produto' => $produto,]);
+            }else{
+                $this->renderView('linhasfatura','create', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura]);
+            }
         }else{
             $this->redirectToRoute('fatura', 'index');
         }

@@ -22,7 +22,7 @@
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <div class="container container_margem">
-                <h2 class="text-left top-space">Fatura Create</h2>
+                <h1 class="nomempresa"><?= $empresa->designacaosocial?></h1>
                 <h2 class="top-space"></h2>
                 <div class="row">
                     <div class="col-sm-12">
@@ -31,10 +31,10 @@
                             <div class="boxer">
                                 <div class="row"id="row1">
                                     <div class="col-3">
-                                    <p type="text"disabled>Cliente: <?= $fatura->user_cliente->username?><text>
-                                    <p type="text"disabled>Email: <?= $fatura->user_cliente->email?><text>
-                                    <p type="text"disabled>Nif: <?= $fatura->user_cliente->nif?><text>
-                                    <p type="text"disabled>data: <?= date('Y/m/d H:i:s', strtotime($fatura->data)); ?><text>
+                                    <p type="text"> Cliente: <?= $fatura->user_cliente->username?><text>
+                                    <p type="text"> Email: <?= $fatura->user_cliente->email?><text>
+                                    <p type="text"> Nif: <?= $fatura->user_cliente->nif?><text>
+                                    <p type="text"> data: <?= date('Y/m/d H:i:s', strtotime($fatura->data)); ?><text>
                                     <br>
                                     </div>
                                 </div>
@@ -46,31 +46,26 @@
                                     </div>
                                     <div class="card-body">
 
-                                        <?php if($linhasfatura != null){foreach ($linhasfatura as $linhafatura) { ?>
-                                            <div class="row">
-
-                                                <div class="col">
-                                                    <label>Descrição do produto</label>
-                                                    <input type="text" class="form-control" value="<?= $linhafatura->produto->descricao ?>" disabled>
-                                                </div>
-                                                <div class="col">
-                                                    <label>Referencia</label>
-                                                    <input type="number" class="form-control" value="<?= $linhafatura->produto->referencia ?>" disabled>
-                                                </div>
-                                                <div class="col">
-                                                    <label>Quantidade</label>
-                                                    <input type="number" class="form-control" value="<?= $linhafatura->quantidade ?>" disabled>
-                                                </div>
-                                                <div class="col">
-                                                    <label>Valor Iva</label>
-                                                    <input type="text" class="form-control" value="<?= number_format($linhafatura->valoriva, 2);?>€" disabled>
-                                                </div>
-                                                <div class="col">
-                                                    <label>Valor</label>
-                                                    <input type="text" class="form-control" value="<?= number_format($linhafatura->valor, 2); ?>€" disabled>
-                                                </div>
-                                            </div>
-                                        <?php } }?>
+                                        <table class="table tablestriped">
+                                            <thead>
+                                            <th class="text-center"><h4>Nome do produto</h4></th>
+                                            <th class="text-center"><h4>Referencia</h4></th>
+                                            <th class="text-center"><h4>Quantidade</h4></th>
+                                            <th class="text-center"><h4>Valor Iva</h4></th>
+                                            <th class="text-center"><h4>Valor</h4></th>
+                                            </thead>
+                                            <tbody>
+                                            <?php if($linhasfatura != null){foreach ($linhasfatura as $linhafatura) { ?>
+                                                <tr>
+                                                    <td class="text-center"><?= $linhafatura->produto->descricao ?></td>
+                                                    <td class="text-center"><?= $linhafatura->produto->referencia ?></td>
+                                                    <td class="text-center"><?= $linhafatura->quantidade ?></td>
+                                                    <td class="text-center"><?= number_format($linhafatura->valoriva, 2); ?></td>
+                                                    <td class="text-center"><?= number_format($linhafatura->valor, 2); ?></td>
+                                                </tr>
+                                            <?php } }?>
+                                            </tbody>
+                                        </table>
                                     </div>
                             </div>
                             <br>
@@ -95,5 +90,18 @@
                 </div>
             </div>
         </main>
+        <footer>
+            <div class="boxer">
+                <div class="row end" id="row1">
+                    <div class="col-8">
+                    </div>
+                    <div class="col-3 text-end">
+                        <p type="text"> Nome do funcionario: <?= $fatura->user_empregado->username?><text>
+                    </div>
+                    <div class="col-1">
+                    </div>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

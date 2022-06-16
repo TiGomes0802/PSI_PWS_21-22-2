@@ -61,6 +61,10 @@
                         $id_fatura = $_GET['id_fatura'];
                         $fatura->imprimir($id_fatura);
                         break;
+                    case 'show':
+                        $id_fatura = $_GET['id_fatura'];
+                        $fatura->show($id_fatura);
+                        break;
                     case 'create':
                         $id_cliente = $_GET['id_cliente'];
                         $fatura->create($id_cliente);
@@ -68,10 +72,6 @@
                     case 'store':
                         $id_cliente = $_GET['id_cliente'];
                         $fatura->store($id_cliente);
-                        break;
-                    case 'show':
-                        $id = $_GET['id'];
-                        $fatura->show($id);
                         break;
                     case 'updateestado':
                         $id = $_GET['id'];
@@ -84,6 +84,9 @@
                 switch ($action) {
                     case 'index':
                         $user->index();
+                        break;
+                    case 'index_all_user':
+                        $user->index_all_user();
                         break;
                     case 'show':
                         $id = $_GET['id'];
@@ -115,8 +118,13 @@
                 $linhasfatura = new LinhasFaturaController();
                 switch ($action) {
                     case 'create':
-                        $id = $_GET['id_fatura'];
-                        $linhasfatura->create($id);
+                        $id_fatura= $_GET['id_fatura'];
+                        if(isset($_GET['id_produto'])){
+                            $id_produto = $_GET['id_produto'];
+                            $linhasfatura->create($id_fatura, $id_produto);
+                        }else{
+                            $linhasfatura->create($id_fatura, 0);
+                        }
                         break;
                     case 'store':
                         $id = $_GET['id_fatura'];
@@ -152,9 +160,9 @@
                         $id = $_GET['id'];
                         $produto->update($id);
                         break;
-                    case 'delete':
-                        $id = $_GET['id'];
-                        $produto->delete($id);
+                    case 'escolher_produto':
+                        $fatura_id = $_GET['id_fatura'];
+                        $produto->escolher_produto($fatura_id);
                         break;
                 }
                 break;

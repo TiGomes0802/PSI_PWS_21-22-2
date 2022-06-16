@@ -26,25 +26,6 @@ class FaturaController extends BaseAuthController
 
     }
 
-    public function show($id)
-    {
-        $auth = new Auth();
-        $user = $auth->getUser();
-
-        if($user->role != 'cliente'){
-            $fatura = Fatura::find([$id]);
-            if (is_null($fatura)) {
-                //TODO redirect to standard error page
-            } else {
-                //mostrar a vista show passando os dados por parâmetro
-                $this->renderView('fatura','show', ['fatura' => $fatura]);
-            }
-        }else {
-            $this->redirectToRoute('auth', 'index');
-        }
-
-    }
-
     public function create($id_cliente)
     {
         $auth = new Auth();
@@ -154,7 +135,7 @@ class FaturaController extends BaseAuthController
                 $this->redirectToRoute('auth', 'index');
             }
         }else {
-            $this->redirectToRoute('auth', 'index');
+            $this->redirectToRoute('fatura', 'index');
         }
 
     }
@@ -171,6 +152,23 @@ class FaturaController extends BaseAuthController
 
             //mostrar a vista index passando os dados por parâmetro
             $this->pageimprimirfatura('fatura', 'imprimir', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura]);
+        }else {
+            $this->redirectToRoute('auth', 'index');
+        }
+    }
+
+    public function show($id_fatura)
+    {
+        $auth = new Auth();
+        $user = $auth->getUser();
+
+        $fatura = Fatura::find_by_id([$id_fatura]);
+        $linhasfatura = Linhasfatura::find_all_by_fatura_id([$id_fatura]);
+
+        if($user->role != 'cliente' or $user->id == $fatura->cliente_id){
+
+            //mostrar a vista index passando os dados por parâmetro
+            $this->renderView('fatura', 'imprimir', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura]);
         }else {
             $this->redirectToRoute('auth', 'index');
         }
