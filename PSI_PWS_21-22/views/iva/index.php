@@ -1,9 +1,12 @@
-<h2 class="text-left top-space">Iva Index</h2>
-<h2 class="top-space"></h2>
-<div style="text-align: right">
-<a href="router.php?c=iva&a=create" class="btn btn-info"
-   role="button">Criar Iva</a>
+<div class="row">
+    <div class="col">
+        <h2 class="text-left top-space">Ivas</h2>
+    </div>
+    <div class="col-sm-2 text-center">
+        <a href="router.php?c=iva&a=create" class="btn w-100 p-2 btn-info">Criar Iva</a>
+    </div>
 </div>
+<p>
 <div class="row">
     <div class="col-sm-12">
         <table class="table tablestriped">

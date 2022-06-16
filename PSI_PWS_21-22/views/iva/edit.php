@@ -8,7 +8,7 @@
             <input type="text" name="id" value="<?=$iva->id?>" disabled><br>
             <p></p>
             <label for="percentagem">Percentagem:</label><br>
-            <input type="text" name="percentagem" value="<?=$iva->percentagem?>"><br>
+            <input type="number" min="0" name="percentagem" value="<?=$iva->percentagem?>"><br>
             <p><?php if(isset($iva->errors)){ echo $iva->errors->on('percentagem'); }?></p>
             <p></p>
             <label for="descricao">Descrição:</label><br>

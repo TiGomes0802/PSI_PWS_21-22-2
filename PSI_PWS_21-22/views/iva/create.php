@@ -5,7 +5,7 @@
         <form action="./router.php?c=iva&a=store" method="POST">
 
             <label for="percentagem">Percentagem:</label><br>
-            <input type="text" name="percentagem" value="<?php if(isset($iva)) { echo $iva->percentagem; }?>">
+            <input type="number" min="0" name="percentagem" value="<?php if(isset($iva)) { echo $iva->percentagem; }?>">
             <p><?php
                 if(isset($iva->errors)) {
                     if (is_array($iva->errors->on('percentagem'))) {
