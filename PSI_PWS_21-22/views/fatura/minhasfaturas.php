@@ -1,4 +1,4 @@
-<h2 class="text-left top-space">Minhas faturass</h2>
+<h2 class="text-left top-space">Minhas faturas</h2>
 <h2 class="top-space"></h2>
 <div class="row">
     <div class="col-sm-12">
@@ -9,7 +9,7 @@
                 <th class="text-center"><h3>Iva total</h3></th>
                 <th class="text-center"><h3>Estado</h3></th>
                 <th class="text-center"><h3>Empregado</h3></th>
-                <th class="text-center"><h3>Cliente</h3></th>
+                <th class="text-center"><h3></h3></th>
             </thead>
             <tbody>
 
@@ -25,7 +25,9 @@
                             <?php
                             if($fatura->estado == "emitida"){
                                 echo '<a target="_blank" href="router.php?c=fatura&a=imprimir&id_fatura='. $fatura->id .'"
-                                                              class="btn btn-info" role="button">Imprimir</a>';
+                                        class="btn btn-info" role="button">Imprimir</a>
+                                      <a target="_blank" href="router.php?c=fatura&a=show&id_fatura='. $fatura->id .'"
+                                        class="btn btn-info" role="button">show</a>';
                             }
                             ?>
                         </td>
