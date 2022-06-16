@@ -6,7 +6,7 @@
             <br>
 
             <label for="username">Username:</label><br>
-            <input type="text" name="username" value="<?php if(isset($cliente)) { echo $cliente->username; }?>">
+            <input class="input-forms" type="text" name="username" value="<?php if(isset($cliente)) { echo $cliente->username; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('username'))) {
@@ -20,7 +20,7 @@
                 ?>
             </p><br>
             <label for="password">Password:</label><br>
-            <input type="password" name="password" value="<?php if(isset($cliente)) { echo $cliente->password; }?>">
+            <input class="input-forms" type="password" name="password" value="<?php if(isset($cliente)) { echo $cliente->password; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('password'))) {
@@ -34,7 +34,7 @@
                 ?>
             </p><br>
                 <label for="email">Email:</label><br>
-                <input type="text" name="email" value="<?php if(isset($cliente)) { echo $cliente->email; }?>">
+                <input class="input-forms" type="text" name="email" value="<?php if(isset($cliente)) { echo $cliente->email; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('email'))) {
@@ -48,7 +48,7 @@
                 ?>
             </p><br>
                 <label for="telefone">Telefone:</label><br>
-                <input type="number" name="telefone" value="<?php if(isset($cliente)) { echo $cliente->telefone; }?>">
+                <input class="input-forms" type="number" name="telefone" value="<?php if(isset($cliente)) { echo $cliente->telefone; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('telefone'))) {
@@ -62,7 +62,7 @@
                 ?>
             </p><br>
                 <label for="nif">Nif:</label><br>
-                <input type="number" name="nif" value="<?php if(isset($cliente)) { echo $cliente->nif; }?>">
+                <input class="input-forms" type="number" name="nif" value="<?php if(isset($cliente)) { echo $cliente->nif; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('nif'))) {
@@ -76,7 +76,7 @@
                 ?>
             </p><br>
                 <label for="morada">Morada:</label><br>
-                <input type="text" name="morada" value="<?php if(isset($cliente)) { echo $cliente->morada; }?>">
+                <input class="input-forms" type="text" name="morada" value="<?php if(isset($cliente)) { echo $cliente->morada; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('morada'))) {
@@ -90,7 +90,7 @@
                 ?>
             </p><br>
                 <label for="codigopostal">Código-Postal:</label><br>
-                <input type="text" name="codigopostal" value="<?php if(isset($cliente)) { echo $cliente->codigopostal; }?>">
+                <input class="input-forms" type="text" name="codigopostal" value="<?php if(isset($cliente)) { echo $cliente->codigopostal; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('codigopostal'))) {
@@ -104,7 +104,7 @@
                 ?>
             </p><br>
                 <label for="localidade">Localidade:</label><br>
-                <input type="text" name="localidade" value="<?php if(isset($cliente)) { echo $cliente->localidade; }?>">
+                <input class="input-forms" type="text" name="localidade" value="<?php if(isset($cliente)) { echo $cliente->localidade; }?>">
             <p><?php
                 if(isset($cliente->errors)) {
                     if (is_array($cliente->errors->on('localidade'))) {
