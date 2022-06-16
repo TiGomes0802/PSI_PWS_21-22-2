@@ -22,7 +22,7 @@
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
             <div class="container container_margem">
-                <h2 class="text-left top-space"><?= $empresa->designacaosocial ?></h2>
+                <h1 class="nomempresa"><?= $empresa->designacaosocial?></h1>
                 <h2 class="top-space"></h2>
                 <div class="row">
                     <div class="col-sm-12">

@@ -4,7 +4,6 @@
     <div class="col-sm-12">
         <table class="table tablestriped">
             <thead>
-            <th class="text-center"><h3>Id</h3></th>
             <th class="text-center"><h3>Username</h3></th>
             <th class="text-center"><h3>Email</h3></th>
             <th class="text-center"><h3>Telefone</h3></th>
@@ -16,7 +15,6 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="text-center"><?=$cliente->id?></td>
                     <td class="text-center"><?=$cliente->username?></td>
                     <td class="text-center"><?=$cliente->email?></td>
                     <td class="text-center"><?=$cliente->telefone?></td>
