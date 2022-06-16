@@ -7,7 +7,7 @@
             <label for="id">Id:</label><br>
             <input type="text" name="id" value="<?=$iva->id?>" disabled><br>
             <p></p>
-            <label for="percentagem">percentagem:</label><br>
+            <label for="percentagem">Percentagem:</label><br>
             <input type="text" name="percentagem" value="<?=$iva->percentagem?>"><br>
             <p><?php if(isset($iva->errors)){ echo $iva->errors->on('percentagem'); }?></p>
             <p></p>
@@ -21,7 +21,7 @@
                 <p></p>
 
                 <br><br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Editar Iva">
 
         </form>
     </div>

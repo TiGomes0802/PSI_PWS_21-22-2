@@ -19,7 +19,7 @@
                 ?>
             </p>
 
-            <label for="descricao">descricao:</label><br>
+            <label for="descricao">Descrição:</label><br>
             <input type="text" name="descricao" value="<?php if(isset($produto)) { echo $produto->descricao; }?>">
             <p><?php
                 if(isset($produto->errors)) {
@@ -34,7 +34,7 @@
                 ?>
 
             </p>
-            <label for="preco">preco:</label><br>
+            <label for="preco">Preço:</label><br>
             <input type="number" min="0" step="0.01" name="preco" value="<?php if(isset($produto)) { echo $produto->preco; }else{echo '0';}?>">
             <p><?php
                 if(isset($produto->errors)) {
@@ -72,7 +72,7 @@
                 <?php } ?>
             </select>
             <p>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Criar Produto">
         </form>
     </div>
 </div>

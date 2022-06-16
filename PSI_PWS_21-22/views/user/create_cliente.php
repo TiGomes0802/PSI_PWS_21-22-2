@@ -118,7 +118,7 @@
                 ?>
             </p><br>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Criar Cliente">
         </form>
     </div>
 </div>
