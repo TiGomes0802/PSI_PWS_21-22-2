@@ -114,8 +114,14 @@
                 $linhasfatura = new LinhasFaturaController();
                 switch ($action) {
                     case 'create':
-                        $id = $_GET['id_fatura'];
-                        $linhasfatura->create($id);
+                        $id_fatura= $_GET['id_fatura'];
+                        if(isset($_GET['id_produto'])){
+                            $id_produto = $_GET['id_produto'];
+                            $linhasfatura->create($id_fatura, $id_produto);
+                        }else{
+                            $linhasfatura->create($id_fatura, 0);
+                        }
+
                         break;
                     case 'store':
                         $id = $_GET['id_fatura'];
@@ -151,9 +157,9 @@
                         $id = $_GET['id'];
                         $produto->update($id);
                         break;
-                    case 'delete':
-                        $id = $_GET['id'];
-                        $produto->delete($id);
+                    case 'escolher_produto':
+                        $fatura_id = $_GET['id_fatura'];
+                        $produto->escolher_produto($fatura_id);
                         break;
                 }
                 break;
