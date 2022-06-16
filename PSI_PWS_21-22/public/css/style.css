@@ -262,7 +262,6 @@ submit {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-
 }
 
 input.sub[type=submit] {
@@ -274,8 +273,6 @@ input.sub[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-
-
 }
 
 input[type=submit]:hover {
