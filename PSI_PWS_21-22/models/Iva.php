@@ -9,7 +9,7 @@ class Iva extends \ActiveRecord\Model
     );
 
     static $validates_format_of = array(
-        array('percentagem', 'with' => '/^([0-9_])$/' , 'message' => 'apenas números'),
+        array('percentagem', 'with' => '/[0-9]$/' , 'message' => 'apenas números'),
     );
 
     static $has_many = array(
