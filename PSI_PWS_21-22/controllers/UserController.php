@@ -42,7 +42,8 @@ class UserController extends BaseAuthController
     public function show($id)
     {
         $user = User::find([$id]);
-        $faturas = Fatura::find('all', array('conditions' => "cliente_id ='$id'"));
+        $faturas = Fatura::find('all', array('conditions' => "cliente_id ='$id'", 'order' => 'data desc'));
+
         if (is_null($user)) {
             $this->redirectToRoute('user','index');
         } else {

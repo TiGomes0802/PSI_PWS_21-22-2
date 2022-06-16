@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="col">
                                     <label>Referencia</label>
-                                    <input type="number" class="form-control" value="<?= $linhafatura->produto->referencia ?>" disabled>
+                                    <input type="text" class="form-control" value="<?= $linhafatura->produto->referencia ?>" disabled>
                                 </div>
                                 <div class="col">
                                     <label>Valor</label>

@@ -20,7 +20,7 @@
                 <td class="text-center"><?= $produto->iva->percentagem?>%</td>
                 <td class="text-center">
                     <a href="router.php?c=produto&a=edit&id=<?=$produto->id ?>"
-                       class="btn btn-info" role="button">Adicionar stock</a>
+                       class="btn btn-info" role="button">Editar produto</a>
                 </td>
             </tr>
             </tbody>

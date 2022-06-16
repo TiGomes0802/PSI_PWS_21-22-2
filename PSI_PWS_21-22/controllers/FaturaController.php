@@ -127,7 +127,7 @@ class FaturaController extends BaseAuthController
             $user = $auth->getUser();
 
             if($user->role == 'cliente'){
-                $faturas = Fatura::find('all', array('conditions' => "cliente_id ='$user->id' and estado = 'emitida'"));
+                $faturas = Fatura::find('all', array('conditions' => "cliente_id ='$user->id' and estado = 'emitida'", 'order' => 'data desc'));
 
                 //mostrar a vista index passando os dados por parâmetro
                 $this->renderView('fatura', 'minhasfaturas', ['faturas' => $faturas]);

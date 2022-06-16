@@ -23,7 +23,7 @@
                     <td class="text-center"><?=$cliente->codigopostal?></td>
                     <td class="text-center"><?=$cliente->localidade?></td>
                     <td class="text-center">
-                        <a href="router.php?c=fatura&a=create&id_cliente=<?=$cliente->id ?>"
+                        <a href="router.php?c=linhasfatura&a=create&id_fatura=<?=$cliente->id ?>"
                            class="btn btn-info" role="button">Criar fatura</a>
                     </td>
                 </tr>
