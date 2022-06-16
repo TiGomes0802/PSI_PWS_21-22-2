@@ -18,7 +18,14 @@
                 <tr>
                     <td class="text-center"><?=$iva->percentagem?>%</td>
                     <td class="text-center"><?=$iva->descricao?></td>
-                    <td class="text-center"><?=$iva->emvigor?></td>
+                    <td class="text-center"><?php
+                        if($iva->emvigor == 1)
+                        {
+                            echo 'Em vigor';
+                        } else if($iva->emvigor == 0) {
+                            echo 'Não vigor';
+                        }
+                        ?></td>
                     <td>
                         <a href="router.php?c=iva&a=show&id=<?=$iva->id ?>"
                            class="btn btn-info" role="button">Show</a>
