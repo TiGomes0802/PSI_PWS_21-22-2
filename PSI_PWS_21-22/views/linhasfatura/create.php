@@ -26,12 +26,13 @@
                         <div id="product_form">
                             <div class="row">
                                 <div class="col-2">
-                                    <label>Referencia do produto</label>
-                                    <a class="btn btn-link" href="./router.php?c=produto&a=escolher_produto&id_fatura=<?=$fatura->id?>">
-                                        Procurar Produto
-                                    </a>
+                                    <p></p>
+                                    <button type="button" class="btn btn-sm btn-light shadow-sm">
+                                        <a class="btn" href="./router.php?c=produto&a=escolher_produto&id_fatura=<?=$fatura->id?>">
+                                            Procurar Produto
+                                        </a>
+                                    </button>
                                 </div>
-
                                 <div class="col">
                                     <label>Referencia do produto</label>
                                     <?php if(isset($produto)){?>
