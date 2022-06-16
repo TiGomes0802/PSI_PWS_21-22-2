@@ -265,7 +265,7 @@ submit {
 
 }
 
-input[type=submit] {
+input.sub[type=submit] {
     width: 30%;
     background-color: #31d2f2;
     color: black;
