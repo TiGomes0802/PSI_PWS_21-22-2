@@ -8,7 +8,9 @@
             <input class="input-forms" type="text" name="id" value="<?=$iva->id?>" disabled><br>
             <p></p>
             <label for="percentagem">Percentagem:</label><br>
-            <input class="input-forms" type="text" name="percentagem" value="<?=$iva->percentagem?>"><br>
+
+            <input class="input-forms" min="0" type="text" name="percentagem" value="<?=$iva->percentagem?>"><br>
+
             <p><?php if(isset($iva->errors)){ echo $iva->errors->on('percentagem'); }?></p>
             <p></p>
             <label for="descricao">Descrição:</label><br>
@@ -16,7 +18,12 @@
             <p><?php if(isset($iva->errors)){ echo $iva->errors->on('descricao'); }?></p>
             <p></p>
             <label for="emvigor">Em Vigor:</label><br>
-            <input class="input-forms" type="number"  min="0" max="1" name="emvigor" value="<?=$iva->emvigor?>"><brdisabled>
+
+            <select name="emvigor" class="input-forms" value="<?php if(isset($iva)) { echo $iva->emvigor; }?>">
+                <option value="1">Em vigor</option>
+                <option value="0">Não vigor</option>
+            </select><br>
+
                 <p><?php if(isset($iva->errors)){ echo $iva->errors->on('emvigor'); }?></p>
                 <p></p>
 

@@ -1,4 +1,5 @@
 <div class="row">
+    <h2 class="text-left top-space">Lista de users</h2>
     <div class="col">
         <form action="router.php?c=user&a=index_all_user" method="post">
             <div class="input-group mb-3">
@@ -13,7 +14,6 @@
         <a href="router.php?c=user&a=create_user" class="btn w-100 p-2 btn-info">Criar user</a>
     </div>
 </div>
-<h3 class="text-left top-space">Lista de users</h3>
 <div class="row">
     <div class="col-sm-12">
         <table class="table tablestriped">

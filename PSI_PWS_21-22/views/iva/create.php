@@ -5,7 +5,9 @@
         <form action="./router.php?c=iva&a=store" method="POST">
 
             <label for="percentagem">Percentagem:</label><br>
-            <input class="input-forms" type="text" name="percentagem" value="<?php if(isset($iva)) { echo $iva->percentagem; }?>">
+          
+            <input class="input-forms" min="0" type="text" name="percentagem" value="<?php if(isset($iva)) { echo $iva->percentagem; }?>">
+          
             <p><?php
                 if(isset($iva->errors)) {
                     if (is_array($iva->errors->on('percentagem'))) {
@@ -35,19 +37,25 @@
 
             </p>
             <label for="emvigor">Em Vigor:</label><br>
-            <input class="input-forms" type="number" min="0" max="1" step="0.01" name="emvigor" value="<?php if(isset($iva)) { echo $iva->emvigor; }else{echo '0';}?>">
+
+            <select class="input-forms" name="emvigor" value="<?php if(isset($iva)) { echo $iva->emvigor; }?>">
+                <option value="1">Em vigor</option>
+                <option value="0">Não vigor</option>
+            </select>
+
             <p><?php
                 if(isset($iva->errors)) {
-                    if (is_array($iva->errors->on('emvigor'))) {
-                        foreach ($iva->errors->on('emvigor') as $error) {
+                    if (is_array($iva->errors->on('role'))) {
+                        foreach ($iva->errors->on('role') as $error) {
                             echo $error . '<br>';
                         }
                     } else {
-                        echo $iva->errors->on('emvigor');
+                        echo $iva->errors->on('role');
                     }
                 }
                 ?>
-            </p>
+            </p><br>
+            <br>
 
 
 
