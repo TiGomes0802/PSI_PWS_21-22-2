@@ -60,7 +60,9 @@
                                             class="btn btn-info" role="button">Adicinar produto</a>';
                                         }else if($fatura->estado == "emitida"){
                                             echo '<a target="_blank" href="router.php?c=fatura&a=imprimir&id_fatura='. $fatura->id .'"
-                                            class="btn btn-info" role="button">Imprimir</a>';
+                                            class="btn btn-info" role="button">Imprimir</a>
+                                             <a href="router.php?c=fatura&a=show&id_fatura='. $fatura->id .'"
+                                            class="btn btn-info" role="button">show</a>';
                                         }
                                         ?>
                                     </td>

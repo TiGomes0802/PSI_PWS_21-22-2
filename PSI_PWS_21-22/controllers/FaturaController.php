@@ -12,43 +12,33 @@ class FaturaController extends BaseAuthController
 
     public function index()
     {
-        $auth = new Auth();
-        $user = $auth->getUser();
-
-        if($user->role != 'cliente'){
+        if($this->getRole() != 'cliente'){
             $faturas = Fatura::find('all', array('order' => 'data desc'));
 
             //mostrar a vista index passando os dados por parâmetro
             $this->renderView('fatura', 'index', ['faturas' => $faturas]);
         }else {
-            $this->redirectToRoute('auth', 'index');
+            $this->redirectToRoute('auth', 'logout');
         }
 
     }
 
     public function create($id_cliente)
     {
-        $auth = new Auth();
-        $user = $auth->getUser();
-
-        if($user->role != 'cliente'){
+        if($this->getRole() != 'cliente'){
             //mostrar a vista create
             $cliente = User::find_by_id($id_cliente);
 
             $this->renderView('fatura','create', ['user' => $cliente]);
         }else {
-            $this->redirectToRoute('auth', 'index');
+            $this->redirectToRoute('auth', 'logout');
         }
 
     }
 
     public function store($id_cliente)
     {
-
-        $auth = new Auth();
-        $user = $auth->getUser();
-
-        if($user->role != 'cliente'){
+        if($this->getRole() != 'cliente'){
             $fatura = new Fatura();
 
             $fatura->estado = "em lançamento";
@@ -66,18 +56,13 @@ class FaturaController extends BaseAuthController
                 $this->renderView('fatura','create', ['fatura' => $fatura]);
             }
         }else {
-            $this->redirectToRoute('auth', 'index');
+            $this->redirectToRoute('auth', 'logout');
         }
-
     }
 
     public function edit($id)
     {
-
-        $auth = new Auth();
-        $user = $auth->getUser();
-
-        if($user->role != 'cliente'){
+        if($this->getRole() != 'cliente'){
             $fatura_estado =  new Fatura();
 
             $fatura = Fatura::find([$id]);
@@ -88,17 +73,14 @@ class FaturaController extends BaseAuthController
                 $this->renderView('fatura','edit', ['fatura' => $fatura]);
             }
         }else {
-            $this->redirectToRoute('auth', 'index');
+            $this->redirectToRoute('auth', 'logout');
         }
 
     }
 
     public function updateestado($id)
     {
-        $auth = new Auth();
-        $user = $auth->getUser();
-
-        if($user->role != 'cliente'){
+        if($this->getRole() != 'cliente'){
             $fatura = Fatura::find([$id]);
 
             $fatura->estado = "emitida";
@@ -113,31 +95,23 @@ class FaturaController extends BaseAuthController
                 $this->renderView('fatura','edit', ['fatura' => $fatura]);
             }
         }else {
-            $this->redirectToRoute('auth', 'index');
+            $this->redirectToRoute('auth', 'logout');
         }
     }
 
     public function minhasfaturas()
     {
-        $auth = new Auth();
-        $user = $auth->getUser();
-
-        if($user->role == 'cliente'){
+        if($this->getRole() == 'cliente'){
             $auth = new Auth();
             $user = $auth->getUser();
 
-            if($user->role == 'cliente'){
-                $faturas = Fatura::find('all', array('conditions' => "cliente_id ='$user->id' and estado = 'emitida'", 'order' => 'data desc'));
+            $faturas = Fatura::find('all', array('conditions' => "cliente_id ='$user->id' and estado = 'emitida'", 'order' => 'data desc'));
 
-                //mostrar a vista index passando os dados por parâmetro
-                $this->renderView('fatura', 'minhasfaturas', ['faturas' => $faturas]);
-            }else {
-                $this->redirectToRoute('auth', 'index');
-            }
+            //mostrar a vista index passando os dados por parâmetro
+            $this->renderView('fatura', 'minhasfaturas', ['faturas' => $faturas]);
         }else {
-            $this->redirectToRoute('fatura', 'index');
+            $this->redirectToRoute('auth', 'logout');
         }
-
     }
 
     public function imprimir($id_fatura)
@@ -153,7 +127,7 @@ class FaturaController extends BaseAuthController
             //mostrar a vista index passando os dados por parâmetro
             $this->pageimprimirfatura('fatura', 'imprimir', ['fatura' => $fatura, 'linhasfatura' => $linhasfatura]);
         }else {
-            $this->redirectToRoute('auth', 'index');
+            $this->redirectToRoute('auth', 'logout');
         }
     }
 
