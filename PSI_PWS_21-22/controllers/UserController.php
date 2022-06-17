@@ -20,7 +20,7 @@ class UserController extends BaseAuthController
         } else {
             $pesquisa = '';
         }
-        $clientes = User::find('all', array('conditions' => "role = 'cliente' and username LIKE '%$pesquisa%'"));
+        $clientes = User::find('all', array('conditions' => "role = 'cliente' and (username LIKE '%$pesquisa%' or telefone LIKE '%$pesquisa%' or nif LIKE '%$pesquisa%')"));
 
         //mostrar a vista index passando os dados por parâmetro
         $this->renderView('user', 'index', ['clientes' => $clientes]);
