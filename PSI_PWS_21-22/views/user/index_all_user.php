@@ -28,16 +28,16 @@
                 <th class="text-center"><h3>Localidade</h3></th>
             </thead>
             <tbody>
-                <?php foreach ($users as $user) { ?>
+                <?php foreach ($users as $pessoa) { ?>
                     <tr id="list">
-                        <td class="text-center"><?=$user->role?></td>
-                        <td class="text-center users"><?=$user->username?></td>
-                        <td class="text-center"><?=$user->email?></td>
-                        <td class="text-center"><?=$user->telefone?></td>
-                        <td class="text-center"><?=$user->nif?></td>
-                        <td class="text-center"><?=$user->morada?></td>
-                        <td class="text-center"><?=$user->codigopostal?></td>
-                        <td class="text-center"><?=$user->localidade?></td>
+                        <td class="text-center"><?=$pessoa->role?></td>
+                        <td class="text-center users"><?=$pessoa->username?></td>
+                        <td class="text-center"><?=$pessoa->email?></td>
+                        <td class="text-center"><?=$pessoa->telefone?></td>
+                        <td class="text-center"><?=$pessoa->nif?></td>
+                        <td class="text-center"><?=$pessoa->morada?></td>
+                        <td class="text-center"><?=$pessoa->codigopostal?></td>
+                        <td class="text-center"><?=$pessoa->localidade?></td>
                     </tr>
                 <?php } ?>
             </tbody>
